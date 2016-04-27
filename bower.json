@@ -1,0 +1,7 @@
+{
+  "name": "theme-avion",
+  "dependencies": {
+    "uikit": "#master"
+  },
+  "private": true
+}
