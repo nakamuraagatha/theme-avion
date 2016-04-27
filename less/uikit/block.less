@@ -7,15 +7,10 @@
 // Variables
 // ========================================================================
 
-@block-padding-vertical:                        50px;
-@block-padding-vertical-large:                  100px;
-
-@block-large-padding-vertical-large:            150px;
-
-@block-default-background:                      @global-background;
-
-@block-secondary-background:                    #1f1915;
-
+@block-default-background:                      #f5f5f5;
+@block-primary-background:                      @global-primary-background;
+@block-muted-background:                        #eee;
+@block-secondary-background:                    @global-secondary-background;
 
 // Component
 // ========================================================================
@@ -40,19 +35,9 @@
 
 .hook-block-misc() {
 
-    /* Desktop and bigger */
-    @media (min-width: 2000px) {
-
-        .uk-block-large {
-            padding-top: 200px;
-            padding-bottom: 200px;
-        }
-
-    }
-
-    /*
-     * Adjust padding between equal colored blocks
-     */
+    //
+    // Adjust padding between equally colored blocks
+    //
 
     .uk-block-default + .uk-block-default,
     .uk-block-muted + .uk-block-muted,

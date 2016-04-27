@@ -7,22 +7,19 @@
 // Variables
 // ========================================================================
 
-@htmleditor-navbar-background:                @global-default-background;
+@htmleditor-navbar-background:                @global-muted-background;
+@htmleditor-navbar-nav-color:                 @global-color;
 
-@htmleditor-navbar-nav-height:                46px;
-@htmleditor-navbar-nav-padding-horizontal:    19px;
-@htmleditor-navbar-nav-line-height:           @htmleditor-navbar-nav-height;
-@htmleditor-navbar-nav-color:                 fade(@global-color, 80%);
-
-@htmleditor-navbar-nav-hover-background:      rgba(255,255,255,0.5);
-@htmleditor-navbar-nav-hover-color:           darken(@global-color, 20%);
-@htmleditor-navbar-nav-onclick-background:    rgba(255,255,255,0.5);
-@htmleditor-navbar-nav-onclick-color:         darken(@global-color, 20%);
-@htmleditor-navbar-nav-active-background:     rgba(255,255,255,0.5);
-@htmleditor-navbar-nav-active-color:          darken(@global-color, 20%);
+@htmleditor-navbar-nav-hover-background:      darken(@htmleditor-navbar-background, 3%);
+@htmleditor-navbar-nav-hover-color:           @global-color;
+@htmleditor-navbar-nav-onclick-background:    darken(@htmleditor-navbar-background, 8%);
+@htmleditor-navbar-nav-onclick-color:         @global-color;
+@htmleditor-navbar-nav-active-background:     darken(@htmleditor-navbar-background, 5%);
+@htmleditor-navbar-nav-active-color:          @global-color;
 
 @htmleditor-content-border:                   @global-border;
 @htmleditor-content-background:               @global-background;
+@htmleditor-content-split-border:             @global-border;
 
 @htmleditor-fullscreen-z-index:               @global-z-index - 10;
 
@@ -30,15 +27,11 @@
 // Component
 // ========================================================================
 
-
 .hook-htmleditor() {}
 
 .hook-htmleditor-navbar() {}
 
-.hook-htmleditor-navbar-nav() {
-    -webkit-transition: all 0.1s linear;
-    transition: all 0.1s linear;
-}
+.hook-htmleditor-navbar-nav() {}
 
 .hook-htmleditor-navbar-nav-hover() {}
 
@@ -52,4 +45,11 @@
 // Miscellaneous
 // ========================================================================
 
-.hook-htmleditor-misc() {}
+.hook-htmleditor-misc() {
+
+    .uk-htmleditor .CodeMirror {
+        background-color: @global-background;
+        color: @global-color;
+    }
+
+}

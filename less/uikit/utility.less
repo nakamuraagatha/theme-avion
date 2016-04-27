@@ -7,6 +7,9 @@
 // Variables
 // ========================================================================
 
+@utility-container-max-width:                   1060px;
+@utility-container-large-max-width:             1380px;
+
 @utility-container-padding-horizontal:          @global-grid-gutter;
 @utility-container-large-padding-horizontal:    @global-grid-gutter-large;
 
@@ -15,12 +18,10 @@
 
 @utility-margin:                                @global-margin;
 
-@utility-border-rounded:                        3px;
-
-@utility-heading-large-small-font-size:         round((@global-font-size * 2.6)); // 42px
-@utility-heading-large-small-line-height:       round((@utility-heading-large-small-font-size * 1.154)); // 48px
-@utility-heading-large-font-size:               round((@global-font-size * 3.375)); // 54px
-@utility-heading-large-line-height:             round((@utility-heading-large-font-size * 1.185)); // 64px
+@utility-heading-large-small-font-size:         round((@global-font-size * 2.57)); // 36px
+@utility-heading-large-small-line-height:       round((@utility-heading-large-small-font-size * 1.167)); // 42px
+@utility-heading-large-font-size:               round((@global-font-size * 3.7)); // 52px
+@utility-heading-large-line-height:             round((@utility-heading-large-font-size * 1.23)); // 64px
 
 @utility-link-muted-color:                      @global-color;
 @utility-link-muted-hover-color:                @global-color;
@@ -37,19 +38,10 @@
 // Scrollable
 // ========================================================================
 
-.hook-scrollable-box() { border-radius: 3px; }
+.hook-scrollable-box() {}
 
 
 // Miscellaneous
 // ========================================================================
 
-.hook-utility-misc() {
-
-    /* Phones and smaller */
-    @media (max-width: @breakpoint-small-max) {
-
-        .uk-container { padding: 0 15px; }
-
-    }
-
-}
+.hook-utility-misc() {}

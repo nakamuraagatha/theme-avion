@@ -8,44 +8,63 @@
 // ========================================================================
 
 @panel-title-margin-bottom:                     @global-margin;
-@panel-title-font-size:                         round((@global-font-size * 1.28)); // 18px / 20px
-@panel-title-line-height:                       round((@panel-title-font-size * 1.32)); // 24px / 26px
-@panel-title-font-weight:                       300;
-@panel-title-color:                             @global-dark-color;
+@panel-title-font-size:                         round((@global-font-size * 1.57)); // 22px
+@panel-title-line-height:                       round((@panel-title-font-size * 1.36)); // 30px
+@panel-title-font-weight:                       @global-heading-font-weight;
+@panel-title-color:                             @global-heading-color;
+@panel-title-text-transform:                    @global-text-transform;
 
-@panel-teaser-margin-bottom:                    @panel-box-padding;
-
-@panel-box-padding:                             25px;
-@panel-box-background:                          @global-background;
+@panel-box-padding:                             @global-margin-large;
+@panel-box-background:                          #fff;
 @panel-box-color:                               @global-color;
-@panel-box-title-color:                         @global-dark-color;
+@panel-box-title-color:                         @global-heading-color;
 
-@panel-box-teaser-margin:                       -(@panel-box-padding);
+@panel-box-primary-background:                  @global-primary-background;
+@panel-box-primary-color:                       @global-contrast-color;
+@panel-box-primary-hover-color:                 @global-contrast-color;
+@panel-box-primary-title-color:                 @global-contrast-color;
+@panel-box-secondary-title-color:               @global-contrast-color;
 
-@panel-box-badge-top:                           0;
+@panel-box-secondary-color:                     @global-contrast-color;
 
-@panel-box-primary-background:                  @global-default-hover-background;
-@panel-box-primary-color:                       @global-color;
-@panel-box-primary-title-color:                 @global-dark-color;
+@panel-box-secondary-background:                @global-secondary-background;
 
-@panel-box-secondary-background:                @global-default-background;
-@panel-box-secondary-color:                     @global-color;
-@panel-box-secondary-title-color:               @global-dark-color;
-
-@panel-hover-padding:                           25px;
+@panel-hover-padding:                           @global-margin;
 @panel-hover-color:                             @global-color;
+@panel-hover-hover-background:                  @panel-box-background;
 @panel-hover-hover-color:                       @global-color;
-@panel-hover-hover-background:                  @global-background;
-@panel-hover-teaser-margin:                     -(@panel-hover-padding);
-
-@panel-hover-badge-top:                         0;
 
 @panel-header-title-border:                     @global-border;
-@panel-header-title-color:                      @global-dark-color;
+@panel-header-title-color:                      @global-heading-color;
 
 @panel-divider-gutter:                          @global-grid-gutter;
 @panel-divider-gutter-large:                    @global-grid-gutter-large;
 @panel-divider-border:                          @global-border;
+
+//
+// New
+//
+
+@panel-box-primary-link-color:                  @global-contrast-color;
+@panel-box-primary-link-hover-color:            fade(@global-contrast-color, 70%);
+@panel-box-primary-badge-background:            @global-contrast-color;
+@panel-box-primary-badge-color:                 @global-primary-color;
+@panel-box-primary-button-background:           @global-contrast-color;
+@panel-box-primary-button-color:                @contrast-inverted-color;
+@panel-box-primary-button-hover-background:     fade(@global-contrast-color, 80%);
+@panel-box-primary-button-active-background:    fade(@global-contrast-color, 70%);
+@panel-box-secondary-link-color:                @global-contrast-color;
+@panel-box-secondary-link-hover-color:          fade(@global-contrast-color, 70%);
+@panel-box-secondary-button-background:         @global-muted-background;
+@panel-box-secondary-button-color:              @global-heading-color;
+@panel-box-secondary-button-hover-background:   fade(@panel-box-secondary-button-background, 80%);
+@panel-box-secondary-button-active-background:  fade(@panel-box-secondary-button-background, 70%);
+@panel-box-shadow-horizontal:                   0;
+@panel-box-shadow-vertical:                     10px;
+@panel-box-shadow-blur:                         15px;
+@panel-box-shadow-spread:                       0;
+@panel-box-shadow-color:                        rgba(0,0,0,0.03);
+
 
 
 // Sub-object: `uk-panel-title`
@@ -63,7 +82,7 @@
 // Modifier: `uk-panel-box`
 // ========================================================================
 
-.hook-panel-box() { box-shadow: 0 1px 4px rgba(0, 0, 0, 0.09); }
+.hook-panel-box() { box-shadow: @panel-box-shadow-horizontal @panel-box-shadow-vertical @panel-box-shadow-blur @panel-box-shadow-spread @panel-box-shadow-color; }
 
 .hook-panel-box-hover() {}
 
@@ -71,7 +90,43 @@
 // Sub-modifier: `uk-panel-box-primary`
 //
 
-.hook-panel-box-primary() { box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12); }
+.hook-panel-box-primary() {
+
+    box-shadow:  @panel-box-shadow-horizontal @panel-box-shadow-vertical @panel-box-shadow-blur @panel-box-shadow-spread @panel-box-shadow-color;
+
+    a,
+    .uk-link {
+
+        color: @panel-box-primary-link-color;
+        text-decoration: underline;
+        &:hover {
+            color: @panel-box-primary-link-hover-color;
+            text-decoration: none;
+        }
+
+    }
+
+    .uk-badge {
+        background: @panel-box-primary-badge-background;
+        color: @panel-box-primary-badge-color;
+    }
+
+    .uk-button {
+        background-color: @panel-box-primary-button-background;
+        color: @panel-box-primary-button-color;
+
+        &:hover,
+        &:focus {
+            background-color: @panel-box-primary-button-hover-background;
+            color:  @panel-box-primary-button-color;
+        }
+
+        &:active  { background-color: @panel-box-primary-button-active-background; }
+    }
+
+    .uk-button-primary {}
+
+}
 
 .hook-panel-box-primary-hover() {}
 
@@ -79,7 +134,34 @@
 // Sub-modifier: `uk-panel-box-secondary`
 //
 
-.hook-panel-box-secondary() {}
+.hook-panel-box-secondary() {
+
+    box-shadow:  @panel-box-shadow-horizontal @panel-box-shadow-vertical @panel-box-shadow-blur @panel-box-shadow-spread @panel-box-shadow-color;
+
+    a,
+    .uk-link {
+
+        color: @panel-box-secondary-link-color;
+        text-decoration: underline;
+        &:hover {
+            color: @panel-box-secondary-link-hover-color;
+            text-decoration: none;
+        }
+
+    }
+
+    .uk-button:not(.uk-button-primary):not(.uk-button-success):not(.uk-button-danger) {
+
+        background: @panel-box-secondary-button-background;
+        color: @panel-box-secondary-button-color;
+
+        &:hover,
+        &:focus { background: @panel-box-secondary-button-hover-background; }
+        &:active { background: @panel-box-secondary-button-active-background; }
+
+    }
+
+}
 
 .hook-panel-box-secondary-hover() {}
 
@@ -89,7 +171,7 @@
 
 .hook-panel-hover() {}
 
-.hook-panel-hover-hover() { box-shadow: 0 1px 4px rgba(0, 0, 0, 0.09); }
+.hook-panel-hover-hover() { box-shadow:  @panel-box-shadow-horizontal @panel-box-shadow-vertical @panel-box-shadow-blur @panel-box-shadow-spread @panel-box-shadow-color; }
 
 
 // Modifier: `uk-panel-header`
@@ -101,11 +183,4 @@
 // Miscellaneous
 // ========================================================================
 
-.hook-panel-misc() {
-
-    .uk-panel-space .uk-panel-badge {
-        top: 0;
-        right: 0;
-    }
-
-}
+.hook-panel-misc() {}

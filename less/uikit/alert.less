@@ -8,18 +8,17 @@
 // ========================================================================
 
 @alert-margin-vertical:                         @global-margin;
+@alert-background:                              #e1ebf0;
+@alert-color:                                   #7f95a0;
 
-@alert-background:                              @global-default-background;
-@alert-color:                                   @global-color;
+@alert-success-background:                      #d9ebcc;
+@alert-success-color:                           @global-success-color;
 
-@alert-success-background:                      #ecf7e9;
-@alert-success-color:                           #80c96d;
+@alert-warning-background:                      #faedd3;
+@alert-warning-color:                           @global-warning-color;
 
-@alert-warning-background:                      #fff0e0;
-@alert-warning-color:                           #ff9a2e;
-
-@alert-danger-background:                       #fde7e7;
-@alert-danger-color:                            #F05D54;
+@alert-danger-background:                       #f3dbd9;
+@alert-danger-color:                            @global-danger-color;
 
 
 // Component
@@ -49,9 +48,4 @@
 // Miscellaneous
 // ========================================================================
 
-.hook-alert-misc() {
-
-    .uk-alert .uk-close { opacity: 0.2; }
-    .uk-alert .uk-close:hover { opacity: 1; }
-
-}
+.hook-alert-misc() {}

@@ -7,21 +7,29 @@
 // Variables
 // ========================================================================
 
-@pagination-padding-vertical:                   5px;
-@pagination-padding-horizontal:                 5px;
-@pagination-line-height:                        @global-line-height;
-@pagination-background:                         transparent;
-@pagination-color:                              @global-muted-color;
-@pagination-hover-background:                   transparent;
-@pagination-hover-color:                        @global-dark-color;
-@pagination-onclick-background:                 transparent;
-@pagination-onclick-color:                      @global-dark-color;
+@pagination-line-height:                        (@global-line-height + 10px);
+@pagination-background:                         rgba(0,0,0,0);
+@pagination-color:                              @global-color;
+@pagination-hover-background:                   @global-primary-background;
+@pagination-hover-color:                        @global-color;
+@pagination-hover-color:                        @global-contrast-color;
+@pagination-onclick-background:                 rgba(0,0,0,0);
+@pagination-onclick-color:                      @global-link-color;
 
-@pagination-active-background:                  transparent;
-@pagination-active-color:                       @global-dark-color;
+@pagination-active-background:                  @global-muted-background;
+@pagination-active-color:                       @global-color;
 
-@pagination-disabled-background:                transparent;
+@pagination-disabled-background:                rgba(0,0,0,0);
 @pagination-disabled-color:                     @global-muted-color;
+
+//
+// New
+//
+
+@pagination-border-radius:                      50%;
+@pagination-border-width:                       @global-border-width;
+@pagination-border:                             @global-border;
+@pagination-onclick-border:                     @global-primary-background;
 
 
 // Component
@@ -31,17 +39,28 @@
 // Items
 //
 
-.hook-pagination-item() {}
+.hook-pagination-item() {
+
+    border-radius: @pagination-border-radius;
+    border: @pagination-border-width solid @pagination-border;
+
+}
 
 // Link
-.hook-pagination-link() {}
+.hook-pagination-link() {
+
+    &:hover,
+    &:focus {  border-color: transparent; }
+    &:active { border-color: @pagination-onclick-border; }
+
+}
 
 .hook-pagination-link-hover() {}
 
 .hook-pagination-link-active() {}
 
 // Active
-.hook-pagination-active() {}
+.hook-pagination-active() { border-color: transparent; }
 
 // Disabled
 .hook-pagination-disabled() {}
@@ -52,7 +71,22 @@
 
 .hook-pagination-misc() {
 
-    .uk-pagination-previous > *,
-    .uk-pagination-next > * { padding: @pagination-padding-vertical 0 !important; }
+    .uk-pagination-previous > a,
+    .uk-pagination-next > a {
+
+        border-color: transparent !important;
+
+        &:hover,
+        &:focus {
+            background: none !important;
+            color:  @global-heading-color !important;
+        }
+
+        &:active { color: @global-link-color !important; }
+
+    }
+
+    .uk-pagination-previous > span,
+    .uk-pagination-next > span { border-color: transparent !important; }
 
 }

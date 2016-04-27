@@ -7,51 +7,59 @@
 // Variables
 // ========================================================================
 
-@navbar-background:                             @global-background;
-@navbar-color:                                  @global-muted-color;
-@navbar-link-color:                             @global-muted-color;
-@navbar-link-hover-color:                       @global-color;
+@navbar-background:                             #fff;
 
-@navbar-nav-height:                             80px;
-@navbar-nav-line-height:                        @navbar-nav-height;
-@navbar-nav-color:                              @global-muted-color;
-@navbar-nav-font-size:                          14px;
-@navbar-nav-font-family:                        "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@navbar-nav-hover-background:                   transparent;
-@navbar-nav-hover-color:                        @global-dark-color;
-@navbar-nav-onclick-background:                 transparent;
-@navbar-nav-onclick-color:                      @global-dark-color;
-@navbar-nav-active-background:                  transparent;
-@navbar-nav-active-color:                       @global-dark-color;
+@navbar-color:                                  @global-color;
+@navbar-link-color:                             @global-link-color;
+@navbar-link-hover-color:                       @global-link-hover-color;
 
-@navbar-brand-font-size:                        round((@global-font-size * 1.28)); // 18px / 20px
-@navbar-brand-color:                            @global-dark-color;
-@navbar-brand-hover-color:                      @global-color;
+@navbar-nav-padding-horizontal:                 22px;
+@navbar-nav-color:                              @global-color;
+@navbar-nav-font-size:                          16px;
+@navbar-nav-font-family:                        @global-body-font-family;
+@navbar-nav-font-weight:                        @global-font-weight;
+@navbar-nav-hover-background:                   rgba(0,0,0,0);
+@navbar-nav-hover-color:                        @global-heading-color;
+@navbar-nav-onclick-background:                 rgba(0,0,0,0);
+@navbar-nav-onclick-color:                      @global-heading-color;
+@navbar-nav-active-background:                  rgba(0,0,0,0);
+@navbar-nav-active-color:                       @global-heading-color;
 
-@navbar-toggle-font-size:                       round((@global-font-size * 1.28)); // 18px / 20px
-@navbar-toggle-color:                           @global-color;
-@navbar-toggle-hover-color:                     @global-color;
+@navbar-brand-color:                            @global-heading-color;
+@navbar-brand-hover-color:                      @global-heading-color;
 
-@navbar-toggle-icon:                            "";
+@navbar-toggle-color:                           @global-heading-color;
+@navbar-toggle-hover-color:                     @global-heading-color;
+
+//
+// New
+//
+
+@navbar-padding:                                25px;
+@navbar-form-background:                        @global-muted-background;
+@navbar-form-color:                             @global-color;
+@navbar-form-focus-color:                       @global-color;
+@navbar-form-focus-border-bottom:               @form-focus-border-bottom;
+@navbar-box-shadow-horizontal:                  0;
+@navbar-box-shadow-vertical:                    10px;
+@navbar-box-shadow-blur:                        15px;
+@navbar-box-shadow-spread:                      0;
+@navbar-box-shadow-color:                       rgba(0,0,0,0.05);
 
 
 // Component
 // ========================================================================
 
 .hook-navbar() {
-    margin-left: -@navbar-nav-padding-horizontal;
-    margin-right: -@navbar-nav-padding-horizontal;
+    padding: @navbar-padding;
+    box-shadow: @navbar-box-shadow-horizontal @navbar-box-shadow-vertical @navbar-box-shadow-blur @navbar-box-shadow-spread @navbar-box-shadow-color;
 }
 
 
 // Sub-object: `uk-navbar-nav`
 // ========================================================================
 
-.hook-navbar-nav() {
-    text-transform: uppercase;
-    -webkit-transition: color 0.05s linear;
-    transition: color 0.05s linear;
-}
+.hook-navbar-nav() {}
 
 // Hover
 .hook-navbar-nav-hover() {}
@@ -66,7 +74,13 @@
 // Sub-object: `uk-navbar-content`
 // ========================================================================
 
-.hook-navbar-content() {}
+.hook-navbar-content() {
+
+    .uk-form :-ms-input-placeholder { color: @navbar-form-color !important; }
+    .uk-form ::-moz-placeholder { color: @navbar-form-color; }
+    .uk-form ::-webkit-input-placeholder { color: @navbar-form-color; }
+
+}
 
 
 // Miscellaneous
@@ -74,22 +88,35 @@
 
 .hook-navbar-misc() {
 
-    /*
-     * `uk-navbar-brand`
-     */
+    // Form in navbar
+    .uk-navbar-content > .uk-form {
 
-    .uk-navbar-brand {}
+        > textarea,
+        > input:not([type]),
+        > input[type="text"],
+        > input[type="password"],
+        > input[type="email"],
+        > input[type="url"],
+        > input[type="search"],
+        > input[type="tel"],
+        > input[type="number"],
+        > input[type="datetime"] {
 
-    /*
-     * `uk-navbar-toggle`
-     */
+            background-color: @navbar-form-background;
+            color: @navbar-form-color;
 
-    .uk-navbar-toggle:after {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        background: url("@{global-image-path}/navbar-toggle.svg") 0 0 no-repeat;
-        line-height: 20px;
+            &:focus {
+
+                &:not(.uk-form-blank) {
+
+                    box-shadow: 0px 1px 0px 0px @navbar-form-focus-border-bottom;
+                    color: @navbar-form-focus-color;
+                }
+
+            }
+
+        }
+
     }
 
 }

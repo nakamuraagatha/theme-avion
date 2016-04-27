@@ -3,9 +3,6 @@
 //
 // ========================================================================
 
-@import 'https://fonts.googleapis.com/css?family=Open+Sans:600,400,300';
-@import 'https://fonts.googleapis.com/css?family=Roboto+Mono:400';
-
 
 // Global variables
 // ========================================================================
@@ -14,49 +11,52 @@
 // Text
 //
 
-@global-color:                                  #888888;
-@global-muted-color:                            #adadad;
+@global-color:                                  #999;
+@global-heading-color:                          #666;
+@global-muted-color:                            #ccc;
 
-@global-link-color:                             #525252;
-@global-link-hover-color:                       #525252;
+@global-primary-color:                          #ec483b;
+@global-success-color:                          #709c63;
+@global-warning-color:                          #e8a44b;
+@global-danger-color:                           #df684c;
 
-@global-dark-color:                             #525255;
+@global-link-color:                             #ec483b;
+@global-link-hover-color:                       darken(@global-link-color, 20%);
+
 @global-contrast-color:                         #fff;
 
-@global-font-size:                              16px;
-@global-line-height:                            26px;
+@global-body-font-family:                       'Open Sans';
+@global-font-size:                              14px;
+@global-line-height:                            24px;
+@global-font-weight:                            400;
+
+@global-heading-font-family:                    'Raleway';
+@global-heading-font-weight:                    400;
+
+@global-text-transform:                         none;
+@global-font-path:                              'fonts';
 
 //
 // Backgrounds & Borders
 //
 
 @global-background:                             #fff;
-@global-border:                                 #e5e5e5;
+@global-primary-background:                     #ec483b;
+@global-success-background:                     #6fc45f;
+@global-warning-background:                     #faa732;
+@global-danger-background:                      #ff4a4a;
+@global-muted-background:                       #f6f6f6;
+@global-secondary-background:                   #55595d;
 
-@global-default-background:                     #f5f5f5;
-@global-default-hover-background:               #fafafa;
-@global-default-active-background:              #eee;
-
-@global-primary-background:                     #489be0;
-@global-primary-hover-background:               #3a94e0;
-@global-primary-active-background:              #3589cf;
-
-@global-success-background:                     #3DC372;
-@global-success-hover-background:               #23b25c;
-@global-success-active-background:              #0fa74c;
-
-@global-danger-background:                      #e44e56;
-@global-danger-hover-background:                #db353f;
-@global-danger-active-background:               #d2232d;
-
-@global-warning-background:                     #FFB24E;
+@global-border-width:                           1px;
+@global-border:                                 rgba(120,121,122,0.15);
 
 //
 // Spacings
 //
 
-@global-margin:                                 25px;
-@global-margin-large:                           35px;
+@global-margin:                                 20px;
+@global-margin-large:                           30px;
 @global-grid-gutter:                            30px;
 @global-grid-gutter-large:                      40px;
 
@@ -64,10 +64,10 @@
 // Controls
 //
 
-@global-height:                                 42px;
-@global-height-mini:                            25px;
-@global-height-small:                           30px;
-@global-height-large:                           55px;
+@global-height:                                 30px;
+@global-height-mini:                            20px;
+@global-height-small:                           25px;
+@global-height-large:                           40px;
 
 //
 // Z-index
@@ -76,7 +76,8 @@
 @global-z-index:                                1000;
 
 
-// Internal
+// Internal Global variables
 // ==========================================================================
 
 @global-image-path:                             'images';
+@global-style:                                  'default';

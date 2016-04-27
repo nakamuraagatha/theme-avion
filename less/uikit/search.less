@@ -7,47 +7,60 @@
 // Variables
 // ========================================================================
 
-@search-height:                                 @global-height;
-@search-padding:                                35px;
-@search-border-width:                           0;
+@search-width:                                  @search-padding;
+@search-focus-width:                            100px;
+@search-height:                                 @global-height-large;
 @search-color:                                  @global-color;
-@search-placeholder-color:                      @global-muted-color;
+@search-placeholder-color:                      rgba(0,0,0,0);
 
-@search-icon:                                   "";
+@search-icon:                                   "\e600";
+@search-icon-size:                              20px;
+@search-icon-color:                             @global-muted-color;
 
-@dropdown-search-background:                    #fff;
 @dropdown-search-color:                         @global-color;
 @dropdown-search-navbar-margin-top:             5px;
 @dropdown-search-navbar-margin-right:           -15px;
+@dropdown-search-background:                    #fff;
 
 @nav-search-color:                              @global-color;
-@nav-search-active-background:                  @global-primary-background;
-@nav-search-active-color:                       @global-contrast-color;
-@nav-search-header-color:                       @global-muted-color;
+@nav-search-active-background:                  @global-muted-background;
+@nav-search-active-color:                       @global-color;
+@nav-search-header-color:                       @global-heading-color;
 @nav-search-divider-border:                     @global-border;
-@nav-search-nested-color:                       @global-link-color;
-@nav-search-nested-hover-color:                 @global-link-hover-color;
+@nav-search-nested-color:                       @global-muted-color;
+@nav-search-nested-hover-color:                 @global-heading-color;
+
+@offcanvas-search-margin:                       20px 0;
+@offcanvas-search-background:                   @global-muted-background;
+@offcanvas-search-color:                        @global-color;
+@offcanvas-search-placeholder-color:            rgba(0,0,0,0);
+@offcanvas-search-icon-color:                   @global-color;
+
+//
+// New
+//
+
+@nav-search-hover-background:                   @global-muted-background;
+@offcanvas-search-focus-background:             rgba(0,0,0,0);
+@offcanvas-search-border-bottom:                rgba(0,0,0,0.3);
 
 
 // Component
 // ========================================================================
 
-.hook-search() { z-index: 1; }
+.hook-search() {}
 
-.hook-search-icon() {
-    height: @global-height;
-    background: url("@{global-image-path}/search.svg") 50% 50% no-repeat;
-    z-index: -1;
-}
+.hook-search-icon() { font-family: Avion; }
 
 
 // Sub-object `uk-search-field`
 // ========================================================================
 
 .hook-search-field() {
-    padding-left: (@search-padding + 10px);
-    font-size: 18px;
-    font-weight: 300;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    text-align: right;
 }
 
 .hook-search-field-focus() {}
@@ -66,7 +79,11 @@
 // Items
 //
 
-.hook-nav-search() {}
+.hook-nav-search() {
+
+    &:hover { background: @nav-search-hover-background; }
+
+}
 
 // Active
 .hook-nav-search-active() {}
@@ -87,10 +104,52 @@
 // Search in offcanvas
 // ========================================================================
 
-.hook-offcanvas-search-field() {}
+.hook-offcanvas-search-field() {
+
+    &:focus {
+        background: @offcanvas-search-focus-background;
+        box-shadow: 0px 1px 0px 0px @offcanvas-search-border-bottom;
+    }
+
+}
 
 
 // Miscellaneous
 // ========================================================================
 
-.hook-search-misc() {}
+.hook-search-misc() {
+
+    .uk-nav-search > li:first-child { margin-top: -@nav-padding-vertical; }
+    .uk-nav-search > li:last-child { margin-bottom: -@nav-padding-vertical; }
+
+    //Search in navbar
+    .uk-navbar {
+
+        .uk-search:before {
+            left: auto;
+            right: 0;
+        }
+
+        .uk-search-field {
+            padding: 0 @search-padding 0 0 !important;
+            &:focus { box-shadow: none; }
+        }
+
+    }
+
+    // Search in off-canvas
+    .uk-offcanvas .uk-search  {
+
+        margin-top: 0;
+
+        &:before {
+            z-index: @global-z-index;
+            font-size: 16px;
+        }
+
+        .uk-search-field { text-align: left; }
+        .uk-search-field:focus { padding-left: @search-padding; }
+
+    }
+
+}

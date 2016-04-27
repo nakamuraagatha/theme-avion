@@ -19,11 +19,18 @@ return [
      */
     'positions' => [
 
+        'toolbar' => 'Toolbar',
         'navbar' => 'Navbar',
-        'hero' => 'Hero',
-        'top' => 'Top',
+        'navbar_more' => 'Navbar More',
+        'top' => 'Top A',
+        'top_b' => 'Top B',
+        'top_c' => 'Top C',
+        'top_d' => 'Top D',
         'sidebar' => 'Sidebar',
-        'bottom' => 'Bottom',
+        'bottom' => 'Bottom A',
+        'bottom_b' => 'Bottom B',
+        'bottom_c' => 'Bottom C',
+        'bottom_d' => 'Bottom D',
         'footer' => 'Footer',
         'offcanvas' => 'Offcanvas'
 

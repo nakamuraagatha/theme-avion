@@ -8,17 +8,25 @@
 // ========================================================================
 
 @tab-border:                                    @global-border;
-@tab-padding-horizontal:                        24px;
-@tab-padding-vertical:                          15px;
-@tab-margin-horizontal:                         15px;
+@tab-border-width:                              @global-border-width;
 @tab-color:                                     @global-color;
-@tab-hover-border:                              transparent;
-@tab-hover-background:                          transparent;
-@tab-hover-color:                               @global-link-hover-color;
-@tab-active-border:                             @global-primary-background;
-@tab-active-background:                         transparent;
-@tab-active-color:                              @global-link-color;
+@tab-padding-horizontal:                        24px;
+@tab-padding-vertical:                          16px;
+@tab-margin-horizontal:                         0;
+@tab-margin-vertical:                           0;
+@tab-hover-border:                              @tab-border;
+@tab-hover-background:                          @tab-background;
+@tab-hover-color:                               @global-heading-color;
+@tab-active-border:                             @tab-border;
+@tab-active-background:                         @global-contrast-color;
+@tab-active-color:                              @global-color;
 @tab-disabled-color:                            @global-muted-color;
+
+//
+// New
+//
+
+@tab-background:                                #fbfbfb;
 
 
 // Component
@@ -29,45 +37,18 @@
 //
 
 .hook-tab() {
-    position: relative;
-    border-width: 0 !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    -webkit-transition: color 0.05s linear;
-    transition: color 0.05s linear;
-
-    &:after {
-        content: "";
-        display: block;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        height: 2px;
-    }
+    border-width: 0 0 @tab-border-width 0;
+    border-color: @tab-border;
 }
-
 
 // Hover
-.hook-tab-hover() {
-
-    &:after { background: @tab-hover-border; }
-
-}
+.hook-tab-hover() {}
 
 // Active
-.hook-tab-active() {
-
-    &:after { background: @tab-active-border; }
-
-}
+.hook-tab-active() {}
 
 // Disabled
-.hook-tab-disabled() {
-
-    &:after { background: transparent; }
-
-}
+.hook-tab-disabled() {}
 
 
 // Miscellaneous
@@ -75,63 +56,85 @@
 
 .hook-tab-misc() {
 
-    /* Modifier: 'tab-bottom'
-    ========================================================================== */
+    .uk-tab { border-bottom-width: 0; }
 
-    .uk-tab-bottom > li > a:after {
-        top: 0;
-        bottom: auto;
+    .uk-tab > li:not(.uk-disabled):not(.uk-active) > a { background: @tab-background; }
+
+    .uk-tab:not(.uk-tab-flip):not(.uk-tab-left):not(.uk-tab-right) > li:nth-child(n+2):not(.uk-tab-responsive) > a { border-left-width: @tab-border-width; }
+
+
+    .uk-tab:not(.uk-tab-flip) > li.uk-disabled > a:hover,
+    .uk-tab:not(.uk-tab-flip) > li.uk-disabled > a:focus { border-left-color: @tab-border; }
+
+    .uk-tab > li:not(.uk-active) > a:hover,
+    .uk-tab > li:not(.uk-active) > a:focus,
+    .uk-tab > li.uk-open:not(.uk-active) > a {
+        margin-bottom: 0;
+        padding-bottom: @tab-padding-bottom;
     }
 
+    .uk-tab > li.uk-disabled > a:hover,
+    .uk-tab > li.uk-disabled > a:focus,
+    .uk-tab > li.uk-disabled.uk-active > a { border-color: @tab-border; }
 
-    /* Modifier: 'tab-left', 'tab-right'
-     ========================================================================== */
+    // 'tab-flip'
+    .uk-tab-flip > li:nth-child(n+2):not(.uk-tab-responsive) > a {
+        border-left-width: 0;
+        border-right-width: @tab-border-width;
+    }
 
-    /* Only tablets and desktops */
+    // 'tab-bottom'
+    .uk-tab-bottom { border-top-width: 0; }
+
+    .uk-tab-bottom > li > a { border-width: @tab-border-width 0 0 0; }
+
+    .uk-tab-bottom > li:not(.uk-active) > a:hover,
+    .uk-tab-bottom > li:not(.uk-active) > a:focus,
+    .uk-tab-bottom > li.uk-open:not(.uk-active) > a {
+        margin-top: 0;
+        padding-top: @tab-padding-bottom;
+    }
+
+    .uk-tab-left > li > a,
+    .uk-tab-right > li > a { border-bottom-width: @tab-border-width; }
+
+    // Phone only
+    @media (max-width: @breakpoint-small-max) {
+
+        .uk-tab-left > li:not(:first-child) > a,
+        .uk-tab-right > li:not(:first-child) > a { border-left-width: @tab-border-width; }
+
+    }
+
+    // Tablet and bigger
     @media (min-width: @breakpoint-medium) {
 
-        .uk-tab-left > li > a,
-        .uk-tab-right > li > a { padding: 0; }
+        // 'tab-left'
+        .uk-tab-left { border-right-width: 0; }
 
-        .uk-tab-left > li > a:after,
-        .uk-tab-right > li > a:after {
-            top: 0;
-            bottom: 0;
-            left: auto;
-            width: 2px;
-            height: auto;
-        }
+        .uk-tab-left > li > a { border-width: 0 @tab-border-width 0 0; }
 
-        /*
-         * Modifier: 'tab-left'
-         */
+        .uk-tab-left > li:nth-child(n+2):not(.uk-tab-responsive) > a { border-top-width: @tab-border-width; }
 
         .uk-tab-left > li:not(.uk-active) > a:hover,
-        .uk-tab-left > li:not(.uk-active) > a:focus {
+        .uk-tab-left > li:not(.uk-active) > a:focus,
+        .uk-tab-left > li.uk-open:not(.uk-active) > a {
             margin-right: 0;
-            padding-bottom: 0;
+            padding-right: @tab-padding-horizontal;
         }
 
-        /*
-         * Modifier: 'tab-right'
-         */
+        // 'tab-right'
+        .uk-tab-right { border-left-width: 0; }
 
-        .uk-tab-right > li > a {
+        .uk-tab-right > li > a { border-width: 0 0 0 @tab-border-width; }
 
-            padding-left: @tab-padding-horizontal;
-
-            &:after {
-                right: auto;
-                left: 0;
-            }
-
-        }
+        .uk-tab-right > li:nth-child(n+2):not(.uk-tab-responsive) > a { border-top-width: @tab-border-width; }
 
         .uk-tab-right > li:not(.uk-active) > a:hover,
-        .uk-tab-right > li:not(.uk-active) > a:focus {
-            padding-left: @tab-padding-horizontal;
-            padding-bottom: 0;
+        .uk-tab-right > li:not(.uk-active) > a:focus,
+        .uk-tab-right > li.uk-open:not(.uk-active) > a {
             margin-left: 0;
+            padding-left: @tab-padding-horizontal;
         }
 
     }

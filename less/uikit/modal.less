@@ -8,16 +8,12 @@
 // ========================================================================
 
 @modal-z-index:                                 @global-z-index + 10;
-@modal-background:                              rgba(0,0,0,0.5);
 
-@modal-dialog-padding:                          40px;
 @modal-dialog-background:                       @global-background;
 
-@modal-dialog-large-width-large:                1120px;
+@modal-header-margin-bottom:                    @global-margin;
 
-@modal-header-margin-bottom:                    @modal-dialog-padding;
-
-@modal-footer-margin-top:                       @modal-dialog-padding;
+@modal-footer-margin-top:                       @global-margin;
 
 @modal-caption-color:                           @global-contrast-color;
 
@@ -43,24 +39,22 @@
 // Sub-object: `uk-modal-header`
 // ========================================================================
 
-.hook-modal-header() { margin-bottom: @modal-header-margin-bottom; }
+.hook-modal-header() {}
 
 
 // Sub-object: `uk-modal-footer`
 // ========================================================================
 
-.hook-modal-footer() {
-    margin: @modal-footer-margin-top -@modal-dialog-padding -@modal-dialog-padding -@modal-dialog-padding !important;
-    padding: 15px @modal-dialog-padding;
-    background: fade(@global-default-background, 30%);
-    border-top: 1px solid @global-border;
-}
+.hook-modal-footer() {}
 
 
 // Sub-object: `uk-modal-caption`
 // ========================================================================
 
-.hook-modal-caption() {}
+.hook-modal-caption() {
+    bottom: auto;
+    margin-top: @global-margin;
+}
 
 
 // Sub-object: `uk-modal-spinner`
@@ -72,28 +66,4 @@
 // Miscellaneous
 // ========================================================================
 
-.hook-modal-misc() {
-
-    .uk-modal-dialog-lightbox > .uk-close:not(.uk-close-alt):first-child {
-        top: -25px;
-        right: -25px;
-    }
-
-    .uk-modal-dialog-lightbox > .uk-close:not(.uk-close-alt):after { background: url("@{global-image-path}/close-contrast.svg") 0 0 no-repeat; }
-
-    .uk-modal-dialog-blank > .uk-close:first-child {
-        top: 0;
-        right: 0;
-        width: 50px;
-        opacity: 1;
-    }
-
-    .uk-modal-dialog-blank > .uk-close:first-child:after {
-        width: 50px;
-        height: 50px;
-        background: @global-color url("@{global-image-path}/close-contrast.svg") 50% 50% no-repeat;
-    }
-
-    .uk-modal-dialog-blank > .uk-close:first-child:hover:after { background-color: @global-dark-color; }
-
-}
+.hook-modal-misc() {}

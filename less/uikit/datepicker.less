@@ -7,21 +7,31 @@
 // Variables
 // ========================================================================
 
+@datepicker-animation:                          uk-fade-scale-02;
 @datepicker-nav-margin-bottom:                  @global-margin;
 @datepicker-nav-color:                          @global-color;
 @datepicker-nav-hover-color:                    @global-color;
 
 @datepicker-table-color:                        @global-color;
 
-@datepicker-table-hover-background:             @global-default-background;
-@datepicker-table-hover-color:                  @global-color;
-@datepicker-table-onclick-background:           @global-default-hover-background;
+@datepicker-table-hover-background:             @global-primary-background;
+@datepicker-table-hover-color:                  @global-contrast-color;
+@datepicker-table-onclick-background:           @global-muted-background;
 @datepicker-table-onclick-color:                @global-color;
 
-@datepicker-table-active-background:            @global-primary-background;
-@datepicker-table-active-color:                 @global-contrast-color;
+@datepicker-table-active-background:            rgba(0,0,0,0);
+@datepicker-table-active-color:                 @global-primary-color;
 
 @datepicker-table-muted-color:                  @global-muted-color;
+
+//
+// New
+//
+
+@datepicker-table-head-font-family:             @global-heading-font-family;
+@datepicker-table-head-color:                   @global-heading-color;
+@datepicker-table-head-text-transform:          uppercase;
+@datepicker-table-line-height:                  28px;
 
 
 // Component
@@ -31,7 +41,11 @@
 
 .hook-datepicker-nav-item() {}
 
-.hook-datepicker-table-item() {}
+.hook-datepicker-table-item() {
+    border-radius: 50%;
+    line-height: @datepicker-table-line-height;
+    min-width: @datepicker-table-line-height;
+}
 
 .hook-datepicker-table-item-hover() {}
 
@@ -43,4 +57,14 @@
 // Miscellaneous
 // ========================================================================
 
-.hook-datepicker-misc() {}
+.hook-datepicker-misc() {
+
+    .uk-datepicker { .uk-animation-top-left; }
+
+    .uk-datepicker-table th {
+        font-family: @datepicker-table-head-font-family;
+        color: @datepicker-table-head-color;
+        text-transform: @datepicker-table-head-text-transform;
+    }
+
+}

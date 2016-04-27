@@ -8,28 +8,35 @@
 // ========================================================================
 
 @dropdown-z-index:                              @global-z-index + 20;
-@dropdown-margin-top:                           10px;
-@dropdown-padding:                              25px;
+@dropdown-width:                                220px;
+@dropdown-padding:                              30px;
 @dropdown-background:                           #fff;
 @dropdown-color:                                @global-color;
-@dropdown-font-size:                            14px;
+@dropdown-divider-border:                       @global-border;
+@dropdown-animation:                            uk-fade-scale-02;
 
 @dropdown-divider-border:                       @global-border;
 
-@dropdown-small-padding:                        @dropdown-padding;
+@dropdown-small-padding:                        15px;
 
-@dropdown-navbar-margin:                        20px;
 @dropdown-navbar-background:                    #fff;
-@dropdown-navbar-color:                         @global-color;
-@dropdown-navbar-animation:                     uk-fade;
+@dropdown-navbar-color:                         #b4b8b9;
+@dropdown-navbar-animation:                     uk-fade-scale-02;
+
+//
+// New
+//
+
+@dropdown-border:                               rgba(0,0,0,0.05);
+@dropdown-border-width:                         @global-border-width;
 
 
 // Component
 // ========================================================================
 
 .hook-dropdown() {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    line-height: 20px;
+    border: @dropdown-border-width solid @dropdown-border;
+    box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.05);
 }
 
 
@@ -39,19 +46,27 @@
 .hook-dropdown-navbar() {}
 
 
-// Sub-object: `uk-dropdown-overlay`
-// ========================================================================
-
-.hook-dropdown-overlay() {}
-
-
 // Miscellaneous
 // ========================================================================
 
 .hook-dropdown-misc() {
 
-    .uk-dropdown > .uk-nav { margin: (15px - @dropdown-padding) (-@dropdown-padding); }
+    .uk-open > .uk-dropdown {
 
-    .uk-dropdown-small > .uk-nav { margin: (15px - @dropdown-small-padding) (-@dropdown-small-padding); }
+        .uk-animation-top-left;
+
+        &.uk-dropdown-flip { .uk-animation-top-right; }
+
+        &.uk-dropdown-center { .uk-animation-top-center; }
+
+        &.uk-dropdown-up  {
+
+            .uk-animation-bottom-left;
+            .uk-dropdown-flip { .uk-animation-bottom-right; }
+            .uk-dropdown-center { .uk-animation-bottom-center; }
+
+        }
+
+    }
 
 }
