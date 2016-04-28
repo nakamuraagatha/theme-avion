@@ -39,7 +39,7 @@
                 <div class="uk-flex uk-flex-middle uk-navbar-content tm-navbar-more uk-visible-large" data-uk-dropdown="{mode:'click'}">
                     <a class="uk-link-reset"></a>
                     <div class="uk-dropdown uk-dropdown-flip">
-                    <?= $view->position('menu_more', 'position-blank.php') ?>
+                    <?= $view->position('navbar_more', 'position-blank.php') ?>
                     </div>
                 </div>
             </div>

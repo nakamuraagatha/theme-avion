@@ -47,6 +47,7 @@
                     <option value="uk-panel-box">{{ 'Box' | trans }}</option>
                     <option value="uk-panel-box uk-panel-box-primary">{{ 'Box Primary' | trans }}</option>
                     <option value="uk-panel-box uk-panel-box-secondary">{{ 'Box Secondary' | trans }}</option>
+                    <option value="uk-panel-space">{{ 'Space' | trans }}</option>
                     <option value="uk-panel-header">{{ 'Header' | trans }}</option>
                 </select>
             </div>

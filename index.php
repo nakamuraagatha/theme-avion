@@ -10,7 +10,9 @@ return [
     'menus' => [
 
         'main' => 'Main',
-        'offcanvas' => 'Offcanvas'
+        'offcanvas' => 'Offcanvas',
+        'toolbar_l' => 'Toolbar Left',
+        'toolbar_r' => 'Toolbar Right'
 
     ],
 
@@ -47,14 +49,8 @@ return [
         'alignment' => '',
         'html_class' => '',
         'sidebar_first' => false,
-        'hero_image' => '',
-        'hero_viewport' => '',
-        'hero_contrast' => '',
-        'hero_parallax' => '',
-        'navbar_transparent' => '',
-        'top_style' => 'uk-block-muted',
-        'main_style' => 'uk-block-default',
-        'bottom_style' => 'uk-block-muted'
+        'header_layout' => 'default',
+        'footer_margin' => ''
 
     ],
 

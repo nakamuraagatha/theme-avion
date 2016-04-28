@@ -31,7 +31,7 @@
         <?php endif; ?>
 
         <?php if ($view->position()->exists('top_b')) : ?>
-        <div id="tm-top" class="tm-top-b uk-block <?= $params['top_style'] ?>">
+        <div id="tm-top-b" class="tm-top-b uk-block <?= $params['top_style'] ?>">
 
             <section class="uk-grid uk-grid-match" data-uk-grid-margin>
                 <?= $view->position('top_b', 'position-grid.php') ?>
@@ -41,7 +41,7 @@
         <?php endif; ?>
 
         <?php if ($view->position()->exists('top_c')) : ?>
-        <div id="tm-top" class="tm-top-c uk-block <?= $params['top_style'] ?>">
+        <div id="tm-top-c" class="tm-top-c uk-block <?= $params['top_style'] ?>">
 
             <section class="uk-grid uk-grid-match" data-uk-grid-margin>
                 <?= $view->position('top_c', 'position-grid.php') ?>
@@ -51,7 +51,7 @@
         <?php endif; ?>
 
         <?php if ($view->position()->exists('top_d')) : ?>
-        <div id="tm-top" class="tm-top-d uk-block <?= $params['top_style'] ?>">
+        <div id="tm-top-d" class="tm-top-d uk-block <?= $params['top_style'] ?>">
 
             <section class="uk-grid uk-grid-match" data-uk-grid-margin>
                 <?= $view->position('top_d', 'position-grid.php') ?>
@@ -89,37 +89,37 @@
         <?php endif; ?>
 
         <?php if ($view->position()->exists('bottom_b')) : ?>
-        <div id="tm-bottom" class="tm-bottom-b uk-block <?= $params['bottom_style'] ?>">
+        <div id="tm-bottom-b" class="tm-bottom-b uk-block <?= $params['bottom_style'] ?>">
 
             <section class="uk-grid uk-grid-match" data-uk-grid-margin>
-                <?= $view->position('bottom-b', 'position-grid.php') ?>
+                <?= $view->position('bottom_b', 'position-grid.php') ?>
             </section>
 
         </div>
         <?php endif; ?>
 
         <?php if ($view->position()->exists('bottom_c')) : ?>
-        <div id="tm-bottom" class="tm-bottom-c uk-block <?= $params['bottom_style'] ?>">
+        <div id="tm-bottom-c" class="tm-bottom-c">
 
             <section class="uk-grid uk-grid-match" data-uk-grid-margin>
-                <?= $view->position('bottom-c', 'position-grid.php') ?>
+                <?= $view->position('bottom_c', 'position-grid.php') ?>
             </section>
 
         </div>
         <?php endif; ?>
 
         <?php if ($view->position()->exists('bottom_d')) : ?>
-        <div id="tm-bottom" class="tm-bottom-d uk-block <?= $params['bottom_style'] ?>">
+        <div id="tm-bottom-d" class="tm-bottom-d uk-block <?= $params['bottom_style'] ?>">
 
             <section class="uk-grid uk-grid-match" data-uk-grid-margin>
-                <?= $view->position('bottom-d', 'position-grid.php') ?>
+                <?= $view->position('bottom_d', 'position-grid.php') ?>
             </section>
 
         </div>
         <?php endif; ?>
 
         <?php if ($view->position()->exists('footer')) : ?>
-        <div id="tm-footer" class="tm-footer uk-block uk-block-secondary uk-contrast">
+        <div id="tm-footer" class="tm-footer<?= $params['footer_margin'] ? ' tm-footer-margin-top' : '' ; ?>">
 
             <section class="uk-grid uk-grid-match" data-uk-grid-margin>
                 <?= $view->position('footer', 'position-grid.php') ?>

@@ -40,66 +40,19 @@
         </div>
 
         <div class="uk-form-row">
-            <label class="uk-form-label">Hero {{ 'Position' | trans }}</label>
-            <div class="uk-form-controls uk-form-controls-text">
-                <p class="uk-form-controls-condensed">
-                    <label><input type="checkbox" v-model="node.theme.hero_viewport"> {{ 'Full viewport height' | trans }}</label>
-                </p>
-                <p class="uk-form-controls-condensed">
-                    <label><input type="checkbox" v-model="node.theme.hero_contrast"> {{ 'Invert colors' | trans }}</label>
-                </p>
-                <p class="uk-form-controls-condensed">
-                    <label><input type="checkbox" v-model="node.theme.navbar_transparent"> {{ 'Transparent navbar as overlay' | trans }}</label>
-                </p>
-                <p class="uk-form-controls-condensed uk-margin-bottom">
-                    <label><input type="checkbox" v-model="node.theme.hero_parallax"> {{ 'Enable parallax effect' | trans }}</label>
-                </p>
-                <p class="uk-form-controls-condensed uk-form-width-large"><input-image :source.sync="node.theme.hero_image"></input-image></p>
-                <p class="uk-form-help-block">{{ 'Select a background image for the hero position.' | trans }}</p>
-            </div>
-        </div>
-
-        <div class="uk-form-row">
             <label for="form-navbar-layout" class="uk-form-label">{{ 'Navbar' | trans }}</label>
             <div class="uk-form-controls">
                 <select id="form-navbar-layout" class="uk-form-width-large" v-model="node.theme.header_layout">
                     <option value="default">{{ 'Default' | trans }}</option>
                     <option value="alt">{{ 'Alternative' | trans }}</option>
                 </select>
-                <p class="uk-form-controls-condensed">
-                    <label><input type="checkbox" v-model="node.theme.header_sticky"> {{ 'Sticky Navigation' | trans }}</label>
-                </p>
             </div>
         </div>
 
         <div class="uk-form-row">
-            <label for="form-top-style" class="uk-form-label">Top {{ 'Position' | trans }}</label>
-            <div class="uk-form-controls">
-                <select id="form-top-style" class="uk-form-width-large" v-model="node.theme.top_style">
-                    <option value="uk-block-default">{{ 'Default' | trans }}</option>
-                    <option value="uk-block-muted">{{ 'Muted' | trans }}</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="uk-form-row">
-            <label for="form-main-style" class="uk-form-label">Main {{ 'Position' | trans }}</label>
-            <div class="uk-form-controls">
-                <select id="form-main-style" class="uk-form-width-large" v-model="node.theme.main_style">
-                    <option value="uk-block-default">{{ 'Default' | trans }}</option>
-                    <option value="uk-block-muted">{{ 'Muted' | trans }}</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="uk-form-row">
-            <label for="form-bottom-style" class="uk-form-label">Bottom {{ 'Position' | trans }}</label>
-            <div class="uk-form-controls">
-                <select id="form-bottom-style" class="uk-form-width-large" v-model="node.theme.bottom_style">
-                    <option value="uk-block-default">{{ 'Default' | trans }}</option>
-                    <option value="uk-block-muted">{{ 'Muted' | trans }}</option>
-                </select>
-                <p class="uk-form-help-block uk-margin">{{ 'Note: Position settings only work if you publish a widget in that position.' | trans }}</p>
+            <span class="uk-form-label">{{ 'Footer' | trans }}</span>
+            <div class="uk-form-controls uk-form-controls-text">
+                <label><input type="checkbox" v-model="node.theme.footer_margin"> {{ 'Add top margin to the footer.' | trans }}</label>
             </div>
         </div>
 
