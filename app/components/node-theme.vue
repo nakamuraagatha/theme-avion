@@ -60,6 +60,19 @@
         </div>
 
         <div class="uk-form-row">
+            <label for="form-navbar-layout" class="uk-form-label">{{ 'Navbar' | trans }}</label>
+            <div class="uk-form-controls">
+                <select id="form-navbar-layout" class="uk-form-width-large" v-model="node.theme.header_layout">
+                    <option value="default">{{ 'Default' | trans }}</option>
+                    <option value="alt">{{ 'Alternative' | trans }}</option>
+                </select>
+                <p class="uk-form-controls-condensed">
+                    <label><input type="checkbox" v-model="node.theme.header_sticky"> {{ 'Sticky Navigation' | trans }}</label>
+                </p>
+            </div>
+        </div>
+
+        <div class="uk-form-row">
             <label for="form-top-style" class="uk-form-label">Top {{ 'Position' | trans }}</label>
             <div class="uk-form-controls">
                 <select id="form-top-style" class="uk-form-width-large" v-model="node.theme.top_style">

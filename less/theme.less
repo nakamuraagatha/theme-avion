@@ -2,6 +2,7 @@
 
 @icon-font-path: "../../../../app/assets/uikit/fonts";
 @global-image-path: '../less/uikit/images';
+@global-font-path: '../less/uikit/fonts';
 
 
 /* Theme Variables
@@ -12,6 +13,20 @@
 @theme-body-background-position:                                0 0;
 @theme-body-background-repeat:                                  repeat;
 @theme-body-background-size:                                    auto;
+
+@theme-navbar-more-color:                                       @global-muted-color;
+@theme-navbar-more-hover-background:                            @button-background;
+@theme-navbar-more-hover-color:                                 @global-muted-color;
+@theme-navbar-more-active-background:                           @button-hover-background;
+@theme-navbar-more-active-color:                                @global-color;
+
+@theme-toolbar-padding-vertical:                                15px;
+@theme-toolbar-padding-horizontal:                              @global-grid-gutter;
+@theme-toolbar-padding-horizontal-large:                        @global-grid-gutter-large;
+@theme-toolbar-background:                                      @global-secondary-background;
+@theme-toolbar-color:                                           #b1b9ba;
+@theme-toolbar-link-color:                                      @global-contrast-color;
+@theme-toolbar-subnav-hover-color:                              @theme-toolbar-link-color;
 
 @theme-ripple-background:                                       rgba(0,0,0,0.07);
 
@@ -47,31 +62,119 @@ body > .uk-container > *:last-child {
 }
 
 
-/* Navbar
+/* Layout
  ========================================================================== */
 
-.tm-navbar {
+
+//
+// Header
+//
+
+.tm-header {
+
+    margin-top: @global-grid-gutter;
+    margin-bottom: @global-grid-gutter;
+
+    // Large screen
+    @media (min-width: @breakpoint-xlarge) {
+        margin-top: @global-grid-gutter-large;
+        margin-bottom: @global-grid-gutter-large;
+    }
+
+}
+
+//
+// Logo
+//
+
+.tm-navbar .tm-logo { margin-right: 22px; }
+
+.tm-header > .tm-logo {
+    display: inline-block;
+    margin-bottom: @global-grid-gutter;
+
+    // Large screen
+    @media (min-width: @breakpoint-xlarge) {
+        margin-bottom: @global-grid-gutter-large;
+    }
+}
+
+//
+// Navbar More position
+//
+
+.tm-navbar-more {
     position: relative;
-    background: @navbar-background;
-    box-shadow: 0px 3px 8px -4px rgba(0,0,0,0.15);
-    z-index: 1;
+    padding: 0;
 }
 
-/* Navbar as overlay */
-.tm-navbar-overlay:not(.uk-active) {
-    position: absolute;
-    z-index: 1;
-    width: 100%;
+.tm-navbar-more > a {
+
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-left: -10px;
+    border-radius: 50%;
+    font-family: "Avion";
+    font-size: 18px;
+    line-height: 32px;
+    color: @theme-navbar-more-color;
+    text-align: center;
+    -webkit-transition: background 0.1s ease-in-out;
+    transition: background 0.1s ease-in-out;
+
+    &:before { content: "\e606"; }
+
+    &:hover {
+        background: @theme-navbar-more-hover-background;
+        color: @theme-navbar-more-hover-color;
+    }
+
+    &:active {
+        background: @theme-navbar-more-active-background;
+        color: @theme-navbar-more-active-color;
+    }
+
 }
 
-/* Transparent background */
-.tm-navbar-transparent {
-    border-bottom-color: transparent;
-    background: transparent;
-    box-shadow: none;
+//
+// Toolbar
+//
+
+.tm-toolbar {
+
+    padding: @theme-toolbar-padding-vertical @theme-toolbar-padding-horizontal;
+    background: @theme-toolbar-background;
+    color: @theme-toolbar-color;
+
+    // Large screen
+    @media (min-width: @breakpoint-xlarge) {
+        padding-left: @theme-toolbar-padding-horizontal-large;
+        padding-right: @theme-toolbar-padding-horizontal-large;
+    }
+
+    a { color: @theme-toolbar-link-color; }
+    a:hover { color: @theme-toolbar-color; }
+
+    .uk-subnav > *:first-child { padding-left: 0; }
+
+    .uk-subnav > * > *,
+    .uk-icon-hover { color: fade(@theme-toolbar-color, 70%); }
+
+    .uk-subnav > * > *:hover,
+    .uk-icon-hover:hover { color: @theme-toolbar-subnav-hover-color; }
+
+    .uk-subnav-line > :nth-child(n+2):before { border-left-color: fade(@theme-toolbar-color, 50%); }
+
 }
 
-.tm-navbar-transparent .uk-navbar { background: none; }
+// Alternative Header
+.tm-toolbar-alt {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.tm-toolbar-alt .uk-subnav { margin-left: 0; }
 
 /*
  * Contrast color

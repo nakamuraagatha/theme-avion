@@ -10,38 +10,14 @@
     </head>
     <body>
 
+    <?php if (($params['header_layout'] == 'alt') && ($params['logo'] || $view->menu()->exists('main') || $view->position()->exists('navbar'))) : ?>
+        <?= $view->position('navbar', 'header-alt.php') ?>
+    <?php endif ?>
+
     <div class="uk-container uk-container-center">
 
-        <?php if ($params['logo'] || $view->menu()->exists('main') || $view->position()->exists('navbar')) : ?>
-        <div class="<?= $params['classes.navbar'] ?>" <?= $params['classes.sticky'] ?>>
-
-            <nav class="uk-navbar">
-
-                <a class="uk-navbar-brand" href="<?= $view->url()->get() ?>">
-                    <?php if ($params['logo']) : ?>
-                        <img class="tm-logo uk-responsive-height" src="<?= $this->escape($params['logo']) ?>" alt="">
-                        <img class="tm-logo-contrast uk-responsive-height" src="<?= ($params['logo_contrast']) ? $this->escape($params['logo_contrast']) : $this->escape($params['logo']) ?>" alt="">
-                    <?php else : ?>
-                        <?= $params['title'] ?>
-                    <?php endif ?>
-                </a>
-
-                <?php if ($view->menu()->exists('main') || $view->position()->exists('navbar')) : ?>
-                <div class="uk-navbar-flip uk-hidden-small">
-                    <?= $view->menu('main', 'menu-navbar.php') ?>
-                    <?= $view->position('navbar', 'position-blank.php') ?>
-                </div>
-                <?php endif ?>
-
-                <?php if ($view->position()->exists('offcanvas') || $view->menu()->exists('offcanvas')) : ?>
-                <div class="uk-navbar-flip uk-visible-small">
-                    <a href="#offcanvas" class="uk-navbar-toggle" data-uk-offcanvas></a>
-                </div>
-                <?php endif ?>
-
-            </nav>
-
-        </div>
+        <?php if (($params['header_layout'] == 'default') && ($params['logo'] || $view->menu()->exists('main') || $view->position()->exists('navbar'))) : ?>
+            <?= $view->position('navbar', 'header-default.php') ?>
         <?php endif ?>
 
         <?php if ($view->position()->exists('top')) : ?>

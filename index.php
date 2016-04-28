@@ -19,7 +19,8 @@ return [
      */
     'positions' => [
 
-        'toolbar' => 'Toolbar',
+        'toolbar_l' => 'Toolbar Left',
+        'toolbar_r' => 'Toolbar Right',
         'navbar' => 'Navbar',
         'navbar_more' => 'Navbar More',
         'top' => 'Top A',
