@@ -20,6 +20,20 @@
         </div>
 
         <div class="uk-form-row">
+            <span class="uk-form-label">{{ 'Style' | trans }}</span>
+            <div class="uk-form-controls">
+                <select id="form-styles" class="uk-form-width-large" v-model="config.style">
+                    <option value="">{{ 'Default' | trans }}</option>
+                    <option value="turquoise">{{ 'Turquoise' | trans }}</option>
+                    <option value="light">{{ 'Light' | trans }}</option>
+                    <option value="green">{{ 'Green' | trans }}</option>
+                    <option value="lilac">{{ 'Lilac' | trans }}</option>
+                    <option value="red">{{ 'Red' | trans }}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="uk-form-row">
             <label class="uk-form-label">{{ 'Logo Off-canvas' | trans }}</label>
             <div class="uk-form-controls uk-form-width-large">
                 <input-image :source.sync="config.logo_offcanvas"></input-image>

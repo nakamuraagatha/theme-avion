@@ -21,7 +21,7 @@
 @theme-navbar-more-active-color:                                @global-color;
 
 @theme-toolbar-padding-vertical:                                15px;
-@theme-toolbar-padding-horizontal:                              @global-grid-gutter;
+@theme-toolbar-padding-horizontal:                              @navbar-padding;
 @theme-toolbar-padding-horizontal-large:                        @global-grid-gutter-large;
 @theme-toolbar-background:                                      @global-secondary-background;
 @theme-toolbar-color:                                           #b1b9ba;
@@ -93,7 +93,7 @@ body > .uk-container > *:last-child {
 /* Layout
  ========================================================================== */
 
-[class*='tm-bottom-'] + .tm-main,
+[class*='tm-top'] + .tm-main,
 .tm-main + [class*='tm-bottom-'] {
 
     margin-top: @grid-gutter-vertical;
@@ -123,6 +123,8 @@ body > .uk-container > *:last-child {
 //
 // Logo
 //
+
+.uk-navbar-brand { padding-left: 0; }
 
 .tm-navbar .tm-logo { margin-right: 22px; }
 
@@ -187,10 +189,10 @@ body > .uk-container > *:last-child {
     > *:not(:first-child) { padding-left: 10px; }
 
     // Large screen
-    @media (min-width: @breakpoint-xlarge) {
-        padding-left: @theme-toolbar-padding-horizontal-large;
-        padding-right: @theme-toolbar-padding-horizontal-large;
-    }
+    // @media (min-width: @breakpoint-xlarge) {
+    //     padding-left: @theme-toolbar-padding-horizontal-large;
+    //     padding-right: @theme-toolbar-padding-horizontal-large;
+    // }
 
     a { color: @theme-toolbar-link-color; }
     a:hover { color: @theme-toolbar-color; }
@@ -348,16 +350,13 @@ body > .uk-container > *:last-child {
 /* Blog
  ========================================================================== */
 
-.tm-container-small {
-    max-width: 800px;
-    margin: auto;
-}
-
-.tm-main {
+.uk-article {
     padding: @theme-article-padding;
     box-shadow: @theme-article-box-shadow-horizontal @theme-article-box-shadow-vertical @theme-article-box-shadow-blur @theme-article-box-shadow-spread @theme-article-box-shadow-color;
     background: @theme-article-background;
 }
+
+.tm-article-featured-image { height: 300px; }
 
 
 /* Helper

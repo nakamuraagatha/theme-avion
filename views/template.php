@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= $view->render('head') ?>
         <?php $view->style('theme', 'theme:css/theme.css') ?>
+        <?php $view->style('theme', $params['style'] ? 'theme:css/styles/'.$params['style'].'/theme.css' : 'theme:css/theme.css') ?>
         <?php $view->script('theme', 'theme:js/theme.js', ['uikit-sticky',  'uikit-lightbox',  'uikit-parallax']) ?>
     </head>
     <body>
@@ -21,7 +22,7 @@
         <?php endif ?>
 
         <?php if ($view->position()->exists('top')) : ?>
-        <div id="tm-top" class="tm-top uk-block <?= $params['top_style'] ?>">
+        <div id="tm-top" class="tm-top <?= $params['top_style'] ?>">
 
             <section class="uk-grid uk-grid-match" data-uk-grid-margin>
                 <?= $view->position('top', 'position-grid.php') ?>
@@ -31,7 +32,7 @@
         <?php endif; ?>
 
         <?php if ($view->position()->exists('top_b')) : ?>
-        <div id="tm-top-b" class="tm-top-b uk-block <?= $params['top_style'] ?>">
+        <div id="tm-top-b" class="tm-top-b <?= $params['top_style'] ?>">
 
             <section class="uk-grid uk-grid-match" data-uk-grid-margin>
                 <?= $view->position('top_b', 'position-grid.php') ?>
@@ -41,7 +42,7 @@
         <?php endif; ?>
 
         <?php if ($view->position()->exists('top_c')) : ?>
-        <div id="tm-top-c" class="tm-top-c uk-block <?= $params['top_style'] ?>">
+        <div id="tm-top-c" class="tm-top-c <?= $params['top_style'] ?>">
 
             <section class="uk-grid uk-grid-match" data-uk-grid-margin>
                 <?= $view->position('top_c', 'position-grid.php') ?>
@@ -51,7 +52,7 @@
         <?php endif; ?>
 
         <?php if ($view->position()->exists('top_d')) : ?>
-        <div id="tm-top-d" class="tm-top-d uk-block <?= $params['top_style'] ?>">
+        <div id="tm-top-d" class="tm-top-d <?= $params['top_style'] ?>">
 
             <section class="uk-grid uk-grid-match" data-uk-grid-margin>
                 <?= $view->position('top_d', 'position-grid.php') ?>
@@ -60,9 +61,9 @@
         </div>
         <?php endif; ?>
 
-        <div id="tm-main" class="tm-main uk-block <?= $params['main_style'] ?>">
+        <div id="tm-main" class="tm-main uk-grid <?= $params['main_style'] ?> data-uk-grid-match data-uk-grid-margin">
 
-            <div class="uk-grid" data-uk-grid-match data-uk-grid-margin>
+<!--             <div class="uk-grid" data-uk-grid-match data-uk-grid-margin> -->
 
                 <main class="<?= $view->position()->exists('sidebar') ? 'uk-width-medium-3-4' : 'uk-width-1-1'; ?>">
                     <?= $view->render('content') ?>
@@ -74,12 +75,12 @@
                 </aside>
                 <?php endif ?>
 
-            </div>
+            <!-- </div> -->
 
         </div>
 
         <?php if ($view->position()->exists('bottom')) : ?>
-        <div id="tm-bottom" class="tm-bottom uk-block <?= $params['bottom_style'] ?>">
+        <div id="tm-bottom" class="tm-bottom <?= $params['bottom_style'] ?>">
 
             <section class="uk-grid uk-grid-match" data-uk-grid-margin>
                 <?= $view->position('bottom', 'position-grid.php') ?>
@@ -89,7 +90,7 @@
         <?php endif; ?>
 
         <?php if ($view->position()->exists('bottom_b')) : ?>
-        <div id="tm-bottom-b" class="tm-bottom-b uk-block <?= $params['bottom_style'] ?>">
+        <div id="tm-bottom-b" class="tm-bottom-b <?= $params['bottom_style'] ?>">
 
             <section class="uk-grid uk-grid-match" data-uk-grid-margin>
                 <?= $view->position('bottom_b', 'position-grid.php') ?>
@@ -109,7 +110,7 @@
         <?php endif; ?>
 
         <?php if ($view->position()->exists('bottom_d')) : ?>
-        <div id="tm-bottom-d" class="tm-bottom-d uk-block <?= $params['bottom_style'] ?>">
+        <div id="tm-bottom-d" class="tm-bottom-d <?= $params['bottom_style'] ?>">
 
             <section class="uk-grid uk-grid-match" data-uk-grid-margin>
                 <?= $view->position('bottom_d', 'position-grid.php') ?>

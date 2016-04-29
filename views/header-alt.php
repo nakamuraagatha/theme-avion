@@ -1,13 +1,17 @@
 <?php if ($view->position()->exists('toolbar_l') || $view->position()->exists('toolbar_r')) : ?>
     <div class="tm-toolbar uk-clearfix uk-hidden-small">
 
-        <?php if ($view->position()->exists('toolbar_l')) : ?>
-        <div class="uk-float-left"><?= $view->position('toolbar_l', 'position-blank.php') ?></div>
-        <?php endif; ?>
+        <div class="uk-container uk-container-center">
 
-        <?php if ($view->position()->exists('toolbar_r')) : ?>
-        <div class="uk-float-right"><?= $view->position('toolbar_r', 'position-blank.php') ?></div>
-        <?php endif; ?>
+            <?php if ($view->position()->exists('toolbar_l')) : ?>
+            <div class="uk-float-left"><?= $view->position('toolbar_l', 'position-blank.php') ?></div>
+            <?php endif; ?>
+
+            <?php if ($view->position()->exists('toolbar_r')) : ?>
+            <div class="uk-float-right"><?= $view->position('toolbar_r', 'position-blank.php') ?></div>
+            <?php endif; ?>
+
+        </div>
 
     </div>
 <?php endif; ?>
