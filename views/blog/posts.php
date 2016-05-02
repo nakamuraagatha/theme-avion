@@ -9,10 +9,19 @@
         <a class="tm-article-featured-image uk-cover-background" href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>" style="background-image: url(<?= $view->url($image) ?>);"></a>
     <?php endif ?>
 
+    <div class="tm-article-date uk-text-center">
+        <span class="tm-article-date-day">
+            <?= __('%day', ['%day' => $post->date->format('d')]) ?>
+        </span>
+        <span class="tm-article-date-month">
+            <?= __('%month', ['%month' => $post->date->format('M')]) ?>
+        </span>
+    </div>
+
     <h1 class="uk-article-title"><a href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><?= $post->title ?></a></h1>
 
     <p class="uk-article-meta">
-        <?= __('Written by %name% on %date%', ['%name%' => $post->user->name, '%date%' => '<time datetime="'.$post->date->format(\DateTime::W3C).'" v-cloak>{{ "'.$post->date->format(\DateTime::W3C).'" | date "longDate" }}</time>' ]) ?>
+        <?= __('Written by %name%', ['%name%' => $post->user->name]) ?>
     </p>
 
     <div class="uk-margin"><?= $post->excerpt ?: $post->content ?></div>
