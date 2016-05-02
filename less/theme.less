@@ -356,7 +356,52 @@ body > .uk-container > *:last-child {
     background: @theme-article-background;
 }
 
-.tm-article-featured-image { height: 300px; }
+// Cancel article padding around featured image
+.tm-article-featured-image {
+    display: block;
+    height: 350px;
+    margin: -@theme-article-padding -@theme-article-padding @theme-article-padding -@theme-article-padding;
+}
+
+// Article date styling
+.tm-article-content.tm-article-date-true {
+
+    // Phone only
+    @media (max-width: @breakpoint-small-max) { padding-top: @global-grid-gutter-large; }
+
+    // Tablet and desktop
+    @media (min-width: @breakpoint-medium) { padding-left: @theme-article-date-width; }
+
+}
+
+.tm-article-date {
+    position: absolute;
+    top: 0;
+    left: -@theme-article-padding;
+    padding: (@global-margin-large / 2) @global-margin-large;
+    box-sizing: border-box;
+    background: @global-muted-background;
+}
+
+.tm-article-date-month { text-transform: uppercase; }
+
+.tm-article-date-month,
+.tm-article-date-year {
+    color: @global-link-color;
+    line-height: 18px;
+}
+
+// Phone only
+@media (max-width: @breakpoint-small-max) { [class*='tm-article-date-'] + * { margin-left: 5px; } }
+
+// Tablet and desktop
+@media (min-width: @breakpoint-medium) {
+
+    .tm-article-date { width: @theme-article-date-width; }
+    [class*='tm-article-date-'] { display: block; }
+    .tm-article-date-day { font-size: 24px; }
+
+}
 
 
 /* Helper
@@ -428,4 +473,53 @@ body > .uk-container > *:last-child {
 
 @keyframes ripple-animation {
     100% { opacity: 0; transform: scale(2); }
+}
+
+//
+// Add 650px height
+//
+
+// Desktop only
+@media (min-width: @breakpoint-large) {
+
+    .tm-height-650 { min-height: 650px; }
+
+}
+
+
+// Style modifications
+// ==========================================================================
+
+.body-style ();
+
+// Default
+.body-style () when (@global-style = 'default') {
+
+    .uk-panel-box-primary:extend(.uk-contrast all){};
+    .uk-panel-box-secondary:extend(.uk-contrast all){};
+
+}
+
+// Green
+.body-style () when (@global-style = 'green') {
+
+    .uk-panel-box-primary:extend(.uk-contrast all){};
+    .uk-panel-box-secondary:extend(.uk-contrast all){};
+
+}
+
+// Red
+.body-style () when (@global-style = 'red') {
+
+    .uk-panel-box-primary:extend(.uk-contrast all){};
+    .uk-panel-box-secondary:extend(.uk-contrast all){};
+
+}
+
+// Turquoise
+.body-style () when (@global-style = 'turquoise') {
+
+    .uk-panel-box-primary:extend(.uk-contrast all){};
+    .uk-panel-box-secondary:extend(.uk-contrast all){};
+
 }

@@ -53,6 +53,18 @@
             </div>
         </div>
 
+        <div class="uk-form-row">
+            <label for="form-theme-panel" class="uk-form-label">{{ 'Particles animation' | trans }}</label>
+            <div class="uk-form-controls">
+                <select id="form-top-style" class="uk-form-width-large" v-model="widget.theme.animation">
+                    <option value="">{{ 'None' | trans }}</option>
+                    <option value="auto">{{ 'Auto' | trans }}</option>
+                    <option value="light">{{ 'Light' | trans }}</option>
+                    <option value="dark">{{ 'Dark' | trans }}</option>
+                </select>
+            </div>
+        </div>
+
     </div>
 
 </template>

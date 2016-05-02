@@ -5,9 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= $view->render('head') ?>
-        <?php $view->style('theme', 'theme:css/theme.css') ?>
         <?php $view->style('theme', $params['style'] ? 'theme:css/styles/'.$params['style'].'/theme.css' : 'theme:css/theme.css') ?>
         <?php $view->script('theme', 'theme:js/theme.js', ['uikit-sticky',  'uikit-lightbox',  'uikit-parallax']) ?>
+        <?php $view->script('particles', 'theme:js/particles.min.js') ?>
+        <?php $view->script('particles-jquery', 'theme:js/particles.jquery.js') ?>
     </head>
     <body>
 
@@ -22,9 +23,9 @@
         <?php endif ?>
 
         <?php if ($view->position()->exists('top')) : ?>
-        <div id="tm-top" class="tm-top <?= $params['top_style'] ?>">
+        <div id="tm-top" class="tm-top">
 
-            <section class="uk-grid uk-grid-match" data-uk-grid-margin>
+            <section class="uk-grid uk-grid-match<?= $params['top_gutter'] ? ' uk-grid-collapse' : '' ; ?>" data-uk-grid-margin>
                 <?= $view->position('top', 'position-grid.php') ?>
             </section>
 
@@ -32,9 +33,9 @@
         <?php endif; ?>
 
         <?php if ($view->position()->exists('top_b')) : ?>
-        <div id="tm-top-b" class="tm-top-b <?= $params['top_style'] ?>">
+        <div id="tm-top-b" class="tm-top-b">
 
-            <section class="uk-grid uk-grid-match" data-uk-grid-margin>
+            <section class="uk-grid uk-grid-match<?= $params['top_b_gutter'] ? ' uk-grid-collapse' : '' ; ?>" data-uk-grid-margin>
                 <?= $view->position('top_b', 'position-grid.php') ?>
             </section>
 
@@ -42,9 +43,9 @@
         <?php endif; ?>
 
         <?php if ($view->position()->exists('top_c')) : ?>
-        <div id="tm-top-c" class="tm-top-c <?= $params['top_style'] ?>">
+        <div id="tm-top-c" class="tm-top-c">
 
-            <section class="uk-grid uk-grid-match" data-uk-grid-margin>
+            <section class="uk-grid uk-grid-match<?= $params['top_c_gutter'] ? ' uk-grid-collapse' : '' ; ?>" data-uk-grid-margin>
                 <?= $view->position('top_c', 'position-grid.php') ?>
             </section>
 
@@ -52,16 +53,16 @@
         <?php endif; ?>
 
         <?php if ($view->position()->exists('top_d')) : ?>
-        <div id="tm-top-d" class="tm-top-d <?= $params['top_style'] ?>">
+        <div id="tm-top-d" class="tm-top-d">
 
-            <section class="uk-grid uk-grid-match" data-uk-grid-margin>
+            <section class="uk-grid uk-grid-match<?= $params['top_d_gutter'] ? ' uk-grid-collapse' : '' ; ?>" data-uk-grid-margin>
                 <?= $view->position('top_d', 'position-grid.php') ?>
             </section>
 
         </div>
         <?php endif; ?>
 
-        <div id="tm-main" class="tm-main uk-grid <?= $params['main_style'] ?> data-uk-grid-match data-uk-grid-margin">
+        <div id="tm-main" class="tm-main uk-grid data-uk-grid-match data-uk-grid-margin">
 
 <!--             <div class="uk-grid" data-uk-grid-match data-uk-grid-margin> -->
 
@@ -80,9 +81,9 @@
         </div>
 
         <?php if ($view->position()->exists('bottom')) : ?>
-        <div id="tm-bottom" class="tm-bottom <?= $params['bottom_style'] ?>">
+        <div id="tm-bottom" class="tm-bottom">
 
-            <section class="uk-grid uk-grid-match" data-uk-grid-margin>
+            <section class="uk-grid uk-grid-match<?= $params['bottom_gutter'] ? ' uk-grid-collapse' : '' ; ?>" data-uk-grid-margin>
                 <?= $view->position('bottom', 'position-grid.php') ?>
             </section>
 
@@ -90,9 +91,9 @@
         <?php endif; ?>
 
         <?php if ($view->position()->exists('bottom_b')) : ?>
-        <div id="tm-bottom-b" class="tm-bottom-b <?= $params['bottom_style'] ?>">
+        <div id="tm-bottom-b" class="tm-bottom-b">
 
-            <section class="uk-grid uk-grid-match" data-uk-grid-margin>
+            <section class="uk-grid uk-grid-match<?= $params['bottom_b_gutter'] ? ' uk-grid-collapse' : '' ; ?>" data-uk-grid-margin>
                 <?= $view->position('bottom_b', 'position-grid.php') ?>
             </section>
 
@@ -102,7 +103,7 @@
         <?php if ($view->position()->exists('bottom_c')) : ?>
         <div id="tm-bottom-c" class="tm-bottom-c">
 
-            <section class="uk-grid uk-grid-match" data-uk-grid-margin>
+            <section class="uk-grid uk-grid-match<?= $params['bottom_c_gutter'] ? ' uk-grid-collapse' : '' ; ?>" data-uk-grid-margin>
                 <?= $view->position('bottom_c', 'position-grid.php') ?>
             </section>
 
@@ -110,9 +111,9 @@
         <?php endif; ?>
 
         <?php if ($view->position()->exists('bottom_d')) : ?>
-        <div id="tm-bottom-d" class="tm-bottom-d <?= $params['bottom_style'] ?>">
+        <div id="tm-bottom-d" class="tm-bottom-d">
 
-            <section class="uk-grid uk-grid-match" data-uk-grid-margin>
+            <section class="uk-grid uk-grid-match<?= $params['bottom_d_gutter'] ? ' uk-grid-collapse' : '' ; ?>" data-uk-grid-margin>
                 <?= $view->position('bottom_d', 'position-grid.php') ?>
             </section>
 

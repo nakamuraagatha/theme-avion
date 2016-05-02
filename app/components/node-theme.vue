@@ -50,6 +50,41 @@
         </div>
 
         <div class="uk-form-row">
+            <label for="form-position-gutter" class="uk-form-label">{{ 'Remove the grid gutter' | trans }}</label>
+            <div class="uk-form-controls uk-form-controls-text">
+                <label><input type="checkbox" v-model="node.theme.top_gutter"> {{ 'Top A' | trans }}</label>
+            </div>
+            <div class="uk-form-controls uk-form-controls-text">
+                <label><input type="checkbox" v-model="node.theme.top_b_gutter"> {{ 'Top B' | trans }}</label>
+            </div>
+            <div class="uk-form-controls uk-form-controls-text">
+                <label><input type="checkbox" v-model="node.theme.top_c_gutter"> {{ 'Top C' | trans }}</label>
+            </div>
+            <div class="uk-form-controls uk-form-controls-text">
+                <label><input type="checkbox" v-model="node.theme.top_d_gutter"> {{ 'Top D' | trans }}</label>
+            </div>
+            <div class="uk-form-controls uk-form-controls-text">
+                <label><input type="checkbox" v-model="node.theme.bottom_gutter"> {{ 'Bottom A' | trans }}</label>
+            </div>
+            <div class="uk-form-controls uk-form-controls-text">
+                <label><input type="checkbox" v-model="node.theme.bottom_b-gutter"> {{ 'Bottom B' | trans }}</label>
+            </div>
+            <div class="uk-form-controls uk-form-controls-text">
+                <label><input type="checkbox" v-model="node.theme.bottom_c_gutter"> {{ 'Bottom C' | trans }}</label>
+            </div>
+            <div class="uk-form-controls uk-form-controls-text">
+                <label><input type="checkbox" v-model="node.theme.bottom_d_gutter"> {{ 'Bottom D' | trans }}</label>
+            </div>
+        </div>
+
+        <div class="uk-form-row">
+            <span class="uk-form-label">{{ 'To-top Scroller' | trans }}</span>
+            <div class="uk-form-controls uk-form-controls-text">
+                <label><input type="checkbox" v-model="node.theme.totop_scroller"> {{ 'Enable a to-top scroller.' | trans }}</label>
+            </div>
+        </div>
+
+        <div class="uk-form-row">
             <span class="uk-form-label">{{ 'Footer' | trans }}</span>
             <div class="uk-form-controls uk-form-controls-text">
                 <label><input type="checkbox" v-model="node.theme.footer_margin"> {{ 'Add top margin to the footer.' | trans }}</label>
