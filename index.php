@@ -63,7 +63,8 @@ return [
         'title_size' => 'uk-panel-title',
         'alignment' => '',
         'html_class' => '',
-        'panel' => ''
+        'panel' => '',
+        'animation' => ''
 
     ],
 

@@ -55,6 +55,10 @@
 @theme-footer-heading-color:                                    #ddd;
 @theme-footer-link-color:                                       @global-contrast-color;
 
+@theme-grid-divider-hover-background:                           #fbfbfb;
+
+@theme-overlay-background-icon-arrow-color:                     @global-heading-color;
+
 @theme-ripple-background:                                       rgba(0,0,0,0.07);
 
 
@@ -336,7 +340,7 @@ body > .uk-container > *:last-child {
 
 .tm-footer { box-shadow: @panel-box-shadow-horizontal @panel-box-shadow-vertical @panel-box-shadow-blur @panel-box-shadow-spread @panel-box-shadow-color; }
 
-.tm-footer > .uk-grid > div > .uk-panel {
+.tm-footer > .uk-panel {
 
     background: @theme-footer-background;
     color: @theme-footer-color;
@@ -359,12 +363,13 @@ body > .uk-container > *:last-child {
 // Cancel article padding around featured image
 .tm-article-featured-image {
     display: block;
-    height: 350px;
     margin: -@theme-article-padding -@theme-article-padding @theme-article-padding -@theme-article-padding;
 }
 
+.tm-article-featured-image:not(.tm-article-single-featured-image) { height: 350px; }
+
 // Article date styling
-.tm-article-content.tm-article-date-true {
+.tm-article-content {
 
     // Phone only
     @media (max-width: @breakpoint-small-max) { padding-top: @global-grid-gutter-large; }
@@ -373,7 +378,6 @@ body > .uk-container > *:last-child {
     @media (min-width: @breakpoint-medium) { padding-left: @theme-article-date-width; }
 
 }
-
 .tm-article-date {
     position: absolute;
     top: 0;
@@ -403,9 +407,93 @@ body > .uk-container > *:last-child {
 
 }
 
+// Hidden date for SEO purposes
+.tm-article-date-hidden { display: none !important; }
+
 
 /* Helper
  ========================================================================== */
+
+//
+// Overlay Avion
+//
+
+.uk-overlay.tm-overlay-avion {
+
+    .uk-overlay-panel {
+
+        padding: @panel-box-padding;
+
+        :not(:hover) [class*='uk-animation-'] {
+            opacity: 0;
+            -webkit-animation-duration: 0.3s;
+            animation-duration: 0.3s;
+        }
+
+        a[data-uk-lightbox] {
+
+            position: absolute;
+            display: inline;
+            right: @panel-box-padding;
+
+            + .uk-panel-title {
+                margin-top: 0;
+                padding-right: @panel-box-padding;
+            }
+
+        }
+
+        .tm-icon-arrow {
+
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid @global-contrast-color;
+            font-family: "Avion";
+            font-size: 18px;
+            line-height: 30px;
+            text-align: center;
+
+            &:before { content: "\e601"; }
+
+        }
+
+    }
+
+    &:hover .uk-overlay-background + .uk-overlay-panel .tm-icon-arrow { border-color: @theme-overlay-background-icon-arrow-color; }
+    &:hover .uk-overlay-background + .uk-overlay-panel a[data-uk-lightbox]:not(.uk-button) { color: @theme-overlay-background-icon-arrow-color; }
+
+    .uk-overlay-background .tm-icon-arrow { border-color: @theme-overlay-background-icon-arrow-color; }
+
+}
+
+.tm-icon-xlarge { font-size: 58px; }
+
+.tm-text-large {
+    font-size: 16px;
+    line-height: 28px;
+}
+
+//
+// Grid Divider
+//
+
+.tm-grid-divider {
+
+    > *:not(:first-child):not(.uk-grid-margin),
+    > *.uk-grid-margin:not(:first-child) { border-left: @global-border-width solid @global-border; }
+
+    > *.uk-grid-margin { border-top: @global-border-width solid @global-border; }
+
+    > div > .uk-panel .uk-panel-title { color: @global-color; }
+    > div > .uk-panel:hover { background: @theme-grid-divider-hover-background; }
+    > div > .uk-panel:hover .uk-panel-title { color: @global-link-color; }
+
+}
+
+// Remove border of first item in each row, if grid wraps
+.tm-border-none { border-left-width: 0 !important; }
 
 //
 // Button Icon
@@ -423,11 +511,24 @@ body > .uk-container > *:last-child {
     &:before { content: "\e601"; }
 }
 
-.tm-icon-xlarge { font-size: 58px; }
+//
+// Icon Arrow
+//
 
-.tm-text-large {
-    font-size: 16px;
-    line-height: 28px;
+.tm-icon-arrow {
+
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid @global-contrast-color;
+    font-family: "Avion";
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+
+    &:before { content: "\e601"; }
+
 }
 
 //
