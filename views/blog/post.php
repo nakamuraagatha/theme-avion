@@ -3,7 +3,7 @@
 <article class="uk-article">
 
     <?php if ($image = $post->get('image.src')): ?>
-        <div class="tm-article-featured-image tm-article-single-featured-image" href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><img src="<?= $image ?>" alt="<?= $post->get('image.alt') ?>"></div>
+    <a class="tm-article-featured-image uk-cover-background" href="<?= $view->url($image) ?>" data-uk-lightbox title="<?= $post->get('image.alt') ?>" style="background-image: url(<?= $view->url($image) ?>);"></a>
     <?php endif ?>
 
     <div class="tm-article-content uk-position-relative">

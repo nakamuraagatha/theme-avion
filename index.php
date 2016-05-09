@@ -47,8 +47,18 @@ return [
         'title_hide' => false,
         'title_large' => false,
         'alignment' => '',
+        'padding' => '',
         'html_class' => '',
         'sidebar_first' => false,
+        'top_gutter' => false,
+        'top_b_gutter' => false,
+        'top_c_gutter' => false,
+        'top_d_gutter' => false,
+        'bottom_gutter' => false,
+        'bottom_b_gutter' => false,
+        'bottom_c_gutter' => false,
+        'bottom_d_gutter' => false,
+        'totop_scroller' => true,
         'header_layout' => 'default',
         'footer_margin' => ''
 
@@ -62,8 +72,9 @@ return [
         'title_hide' => false,
         'title_size' => 'uk-panel-title',
         'alignment' => '',
+        'padding' => '',
         'html_class' => '',
-        'panel' => '',
+        'panel' => 'uk-panel-box',
         'animation' => ''
 
     ],
@@ -78,7 +89,6 @@ return [
      */
     'config' => [
 
-        'logo_contrast' => '',
         'logo_offcanvas' => ''
 
     ],

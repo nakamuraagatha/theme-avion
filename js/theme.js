@@ -50,35 +50,6 @@
             });
         })();
 
-        // Delete grid-divider border on first item in row
-        $('.uk-grid.tm-grid-divider').each(function() {
-            var $this = $(this),
-                items = $this.children().filter(':visible'), pos;
-
-            if (items.length > 0) {
-                pos_cache = items.first().position().left;
-
-                UIkit.$win.on('load resize', UIkit.Utils.debounce((function(fn) {
-
-                    fn = function () {
-
-                        items.each(function() {
-
-                            pos = $(this).position();
-
-                            $(this)[pos.left == pos_cache ? 'addClass':'removeClass']('tm-border-none');
-                        });
-
-                        return fn;
-                    }
-
-                    return fn();
-
-                })(), 80));
-            }
-
-        });
-
     });
 
 })(jQuery);

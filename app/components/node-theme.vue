@@ -23,6 +23,12 @@
                     <label><input type="checkbox" v-model="node.theme.alignment"> {{ 'Center the title and content.' | trans }}</label>
                 </div>
             </div>
+            <div class="uk-form-row">
+                <span class="uk-form-label">{{ 'Padding' | trans }}</span>
+                <div class="uk-form-controls uk-form-controls-text">
+                    <label><input type="checkbox" v-model="node.theme.padding"> {{ 'Remove the article padding.' | trans }}</label>
+                </div>
+            </div>
         </template>
 
         <div class="uk-form-row">
@@ -67,7 +73,7 @@
                 <label><input type="checkbox" v-model="node.theme.bottom_gutter"> {{ 'Bottom A' | trans }}</label>
             </div>
             <div class="uk-form-controls uk-form-controls-text">
-                <label><input type="checkbox" v-model="node.theme.bottom_b-gutter"> {{ 'Bottom B' | trans }}</label>
+                <label><input type="checkbox" v-model="node.theme.bottom_b_gutter"> {{ 'Bottom B' | trans }}</label>
             </div>
             <div class="uk-form-controls uk-form-controls-text">
                 <label><input type="checkbox" v-model="node.theme.bottom_c_gutter"> {{ 'Bottom C' | trans }}</label>

@@ -1,15 +1,23 @@
 <?php if ($view->position()->exists('toolbar_l') || $view->position()->exists('toolbar_r')) : ?>
-    <div class="tm-toolbar uk-clearfix uk-hidden-small">
+    <div class="tm-toolbar tm-toolbar-alt uk-clearfix uk-hidden-small">
 
         <div class="uk-container uk-container-center">
 
             <?php if ($view->position()->exists('toolbar_l')) : ?>
-            <div class="uk-float-left"><?= $view->position('toolbar_l', 'position-blank.php') ?></div>
+            <div class="uk-float-left"><?= $view->position('toolbar_l', 'position-panel.php') ?></div>
             <?php endif; ?>
 
+            <?php if ($view->menu()->exists('toolbar_l')) : ?>
+                <div class="uk-float-left"><?= $view->menu('toolbar_l', 'menu-toolbar.php') ?></div>
+            <?php endif ?>
+
             <?php if ($view->position()->exists('toolbar_r')) : ?>
-            <div class="uk-float-right"><?= $view->position('toolbar_r', 'position-blank.php') ?></div>
+            <div class="uk-float-right"><?= $view->position('toolbar_r', 'position-panel.php') ?></div>
             <?php endif; ?>
+
+            <?php if ($view->menu()->exists('toolbar_r')) : ?>
+                <div class="uk-float-right"><?= $view->menu('toolbar_r', 'menu-toolbar.php') ?></div>
+            <?php endif ?>
 
         </div>
 
@@ -25,7 +33,6 @@
             <a class="uk-navbar-brand" href="<?= $view->url()->get() ?>">
                 <?php if ($params['logo']) : ?>
                     <img class="tm-logo uk-responsive-height" src="<?= $this->escape($params['logo']) ?>" alt="">
-                    <img class="tm-logo-contrast uk-responsive-height" src="<?= ($params['logo_contrast']) ? $this->escape($params['logo_contrast']) : $this->escape($params['logo']) ?>" alt="">
                 <?php else : ?>
                     <?= $params['title'] ?>
                 <?php endif ?>

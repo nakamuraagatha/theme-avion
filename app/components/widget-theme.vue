@@ -33,6 +33,13 @@
         </div>
 
         <div class="uk-form-row">
+            <span class="uk-form-label">{{ 'Padding' | trans }}</span>
+            <div class="uk-form-controls uk-form-controls-text">
+                <label><input type="checkbox" v-model="widget.theme.padding"> {{ 'Remove the box padding.' | trans }}</label>
+            </div>
+        </div>
+
+        <div class="uk-form-row">
             <label for="form-theme-badge" class="uk-form-label">{{ 'HTML Class' | trans }}</label>
             <div class="uk-form-controls">
                 <input id="form-theme-badge" class="uk-form-width-large" type="text" v-model="widget.theme.html_class">
@@ -47,6 +54,7 @@
                     <option value="uk-panel-box">{{ 'Box' | trans }}</option>
                     <option value="uk-panel-box uk-panel-box-primary">{{ 'Box Primary' | trans }}</option>
                     <option value="uk-panel-box uk-panel-box-secondary">{{ 'Box Secondary' | trans }}</option>
+                    <option value="uk-panel-box tm-panel-box-alternative">{{ 'Box Alternative' | trans }}</option>
                     <option value="uk-panel-space">{{ 'Space' | trans }}</option>
                     <option value="uk-panel-header">{{ 'Header' | trans }}</option>
                 </select>

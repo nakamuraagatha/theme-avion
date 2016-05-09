@@ -84,9 +84,12 @@
         </section>
         <?php endif; ?>
 
-        <?php if ($view->position()->exists('footer')) : ?>
+        <?php if ($view->position()->exists('footer') || $params['totop_scroller']) : ?>
         <div id="tm-footer" class="tm-footer<?= $params['footer_margin'] ? ' tm-footer-margin-top' : '' ; ?>">
 
+            <?php if ($params['totop_scroller']) : ?>
+            <a class="tm-totop-scroller uk-link-reset" data-uk-smooth-scroll href="#"></a>
+            <?php endif; ?>
             <?= $view->position('footer', 'position-panel.php') ?>
 
         </div>
