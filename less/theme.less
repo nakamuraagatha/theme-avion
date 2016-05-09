@@ -8,12 +8,6 @@
 /* Theme Variables
  ========================================================================== */
 
-@theme-body-background-attachment:                              scroll;
-@theme-body-background-image:                                   url('../@{global-image-path}/@{global-style}/body_bg.jpg');
-@theme-body-background-position:                                0 0;
-@theme-body-background-repeat:                                  repeat;
-@theme-body-background-size:                                    auto;
-
 @theme-navbar-more-color:                                       @global-muted-color;
 @theme-navbar-more-hover-background:                            @button-background;
 @theme-navbar-more-hover-color:                                 @global-muted-color;
@@ -75,11 +69,6 @@ html {
     min-height: 100%;
     overflow-y: scroll;
     background-color: @block-default-background;
-    background-image: @theme-body-background-image;
-    background-position: @theme-body-background-position;
-    background-repeat: @theme-body-background-repeat;
-    background-size: @theme-body-background-size;
-    background-attachment: @theme-body-background-attachment;
 }
 
 // Add bottom margin to last element in the page (e.g. footer)
@@ -236,8 +225,8 @@ body > .uk-container > *:last-child {
 
     }
 
-   // Form
-   .uk-form input { background: @theme-panel-box-alternative-form-background; }
+    // Form
+    .uk-form input { background: @theme-panel-box-alternative-form-background; }
 
     .uk-form input:focus {
         box-shadow: 0px 1px 0px 0px @theme-panel-box-alternative-form-focus-border-bottom;
@@ -266,10 +255,12 @@ body > .uk-container > *:last-child {
 //
 
 .tm-footer-margin-top {
+
     margin-top: @grid-gutter-vertical;
 
     // Large screen
     @media (min-width: @breakpoint-xlarge) { margin-top: @grid-gutter-large-vertical; }
+
 }
 
 .tm-footer {
@@ -290,18 +281,6 @@ body > .uk-container > *:last-child {
 //
 // To-top scroller
 //
-
-// Phone only
-@media (max-width: @breakpoint-small-max) {
-
-    .tm-totop-scroller + .uk-panel { padding-top: @global-height + @panel-box-padding; }
-
-    .tm-totop-scroller {
-        left: 50%;
-        margin-left: -7px;
-    }
-
-}
 
 .tm-totop-scroller {
 
@@ -328,6 +307,18 @@ body > .uk-container > *:last-child {
 
 }
 
+// Phone only
+@media (max-width: @breakpoint-small-max) {
+
+    .tm-totop-scroller + .uk-panel { padding-top: @global-height + @panel-box-padding; }
+
+    .tm-totop-scroller {
+        left: 50%;
+        margin-left: -7px;
+    }
+
+}
+
 
 /* Blog
  ========================================================================== */
@@ -338,13 +329,14 @@ body > .uk-container > *:last-child {
     background: @theme-article-background;
 }
 
-// Cancel article padding around featured image
+// Cancel article padding around post image
 .tm-article-featured-image {
     display: block;
     margin: -@theme-article-padding -@theme-article-padding @theme-article-padding -@theme-article-padding;
 }
 
-.tm-article-featured-image:not(.tm-article-single-featured-image) { height: 350px; }
+// Post image height
+.tm-article-featured-image { height: 350px; }
 
 // Article date styling
 .tm-article-content {
@@ -374,7 +366,7 @@ body > .uk-container > *:last-child {
 }
 
 // Phone only
-@media (max-width: @breakpoint-small-max) { [class*='tm-article-date-'] + * { margin-left: 5px; } }
+@media (max-width: @breakpoint-small-max) { [class*='tm-article-date-']:not(.tm-article-date-hidden) + * { margin-left: 5px; } }
 
 // Tablet and desktop
 @media (min-width: @breakpoint-medium) {
@@ -402,7 +394,7 @@ body > .uk-container > *:last-child {
 
         padding: @panel-box-padding;
 
-        :not(:hover) [class*='uk-animation-'] {
+        &:not(:hover) [class*='uk-animation-'] {
             opacity: 0;
             -webkit-animation-duration: 0.3s;
             animation-duration: 0.3s;
@@ -483,32 +475,12 @@ body > .uk-container > *:last-child {
 }
 
 //
-// Icon Arrow
-//
-
-.tm-icon-arrow {
-
-    display: block;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 2px solid @global-contrast-color;
-    font-family: "Avion";
-    font-size: 18px;
-    line-height: 30px;
-    text-align: center;
-
-    &:before { content: "\e601"; }
-
-}
-
-//
 // Ripple Effect
 //
 
 .uk-button,
 .uk-nav-dropdown > li > a,
-.uk-navbar-nav > li > a,
+.uk-nav-navbar > li > a,
 .uk-nav-offcanvas > li > a,
 .uk-tab > li > a {
     position: relative;
@@ -518,7 +490,7 @@ body > .uk-container > *:last-child {
 
 .uk-button,
 .uk-nav-dropdown > li > a,
-.uk-navbar-nav > li > a,
+.uk-nav-navbar > li > a,
 .uk-nav-offcanvas > li > a,
 .uk-tab > li > a { overflow: hidden; }
 
