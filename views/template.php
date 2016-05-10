@@ -5,8 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= $view->render('head') ?>
-        <?php $view->style('theme', $params['style'] ? 'theme:css/theme.'.$params['style'].'.css' : 'theme:css/theme.css') ?>
-        <?php $view->script('theme', 'theme:js/theme.js', ['uikit-sticky',  'uikit-lightbox',  'uikit-parallax']) ?>
+        <?php $view->style('theme', $params['style'] ? 'theme:css/styles/'.$params['style'].'/theme.css' : 'theme:css/theme.css') ?>
+        <?php $view->script('theme', 'theme:js/theme.js', ['uikit-sticky',  'uikit-lightbox',  'uikit-parallax', 'uikit-datepicker']) ?>
         <?php $view->script('particles', 'theme:js/particles.min.js') ?>
         <?php $view->script('particles-jquery', 'theme:js/particles.jquery.js') ?>
     </head>
