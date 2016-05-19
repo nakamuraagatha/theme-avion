@@ -89,6 +89,7 @@ return [
      */
     'config' => [
 
+        'style' => '',
         'logo_small' => '',
         'logo_offcanvas' => ''
 
