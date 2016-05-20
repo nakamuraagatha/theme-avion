@@ -58,8 +58,6 @@ return [
         'bottom_b_gutter' => false,
         'bottom_c_gutter' => false,
         'bottom_d_gutter' => false,
-        'totop_scroller' => true,
-        'header_layout' => 'default',
         'footer_margin' => ''
 
     ],
@@ -91,7 +89,9 @@ return [
 
         'style' => '',
         'logo_small' => '',
-        'logo_offcanvas' => ''
+        'logo_offcanvas' => '',
+        'header_layout' => 'default',
+        'totop_scroller' => true
 
     ],
 
@@ -125,9 +125,7 @@ return [
             $params = $view->params;
 
             $classes = [
-                'navbar' => 'tm-navbar',
-                'hero' => '',
-                'parallax' => ''
+                'navbar' => 'tm-navbar'
             ];
 
             $params['classes'] = $classes;

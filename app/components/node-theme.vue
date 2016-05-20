@@ -84,13 +84,6 @@
         </div>
 
         <div class="uk-form-row">
-            <span class="uk-form-label">{{ 'To-top Scroller' | trans }}</span>
-            <div class="uk-form-controls uk-form-controls-text">
-                <label><input type="checkbox" v-model="node.theme.totop_scroller"> {{ 'Enable a to-top scroller.' | trans }}</label>
-            </div>
-        </div>
-
-        <div class="uk-form-row">
             <span class="uk-form-label">{{ 'Footer' | trans }}</span>
             <div class="uk-form-controls uk-form-controls-text">
                 <label><input type="checkbox" v-model="node.theme.footer_margin"> {{ 'Add top margin to the footer.' | trans }}</label>
