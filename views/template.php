@@ -46,21 +46,17 @@
         </section>
         <?php endif; ?>
 
-        <div id="tm-main" class="uk-grid data-uk-grid-match data-uk-grid-margin">
+        <div id="tm-main" class="tm-main uk-grid data-uk-grid-match" data-uk-grid-margin>
 
-                <div class="tm-main <?= $view->position()->exists('sidebar') ? 'uk-width-medium-3-4' : 'uk-width-1-1'; ?>">
+            <main class="<?= $view->position()->exists('sidebar') ? 'uk-width-medium-3-4' : 'uk-width-1-1'; ?>">
+                <?= $view->render('content') ?>
+            </main>
 
-                    <main id="tm-content" class="tm-content">
-                        <?= $view->render('content') ?>
-                    </main>
-
-                </div>
-
-                <?php if ($view->position()->exists('sidebar')) : ?>
-                <aside class="uk-width-medium-1-4 <?= $params['sidebar_first'] ? 'uk-flex-order-first-medium' : ''; ?>">
-                    <?= $view->position('sidebar', 'position-panel.php') ?>
-                </aside>
-                <?php endif ?>
+            <?php if ($view->position()->exists('sidebar')) : ?>
+            <aside class="uk-width-medium-1-4 <?= $params['sidebar_first'] ? 'uk-flex-order-first-medium' : ''; ?>">
+                <?= $view->position('sidebar', 'position-panel.php') ?>
+            </aside>
+            <?php endif ?>
 
         </div>
 
