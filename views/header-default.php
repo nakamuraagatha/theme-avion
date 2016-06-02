@@ -1,6 +1,6 @@
 <div class="tm-header">
 
-    <?php if ($view->position()->exists('toolbar_l') || $view->position()->exists('toolbar_r')) : ?>
+    <?php if ($view->menu()->exists('toolbar_l') || $view->menu()->exists('toolbar_r') || $view->position()->exists('toolbar_l') || $view->position()->exists('toolbar_r')) : ?>
         <div class="tm-toolbar uk-clearfix uk-hidden-small">
 
             <?php if ($view->position()->exists('toolbar_l')) : ?>
