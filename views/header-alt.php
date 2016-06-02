@@ -1,4 +1,4 @@
-<?php if ($view->position()->exists('toolbar_l') || $view->position()->exists('toolbar_r')) : ?>
+<?php if ($view->menu()->exists('toolbar_l') || $view->menu()->exists('toolbar_r') || $view->position()->exists('toolbar_l') || $view->position()->exists('toolbar_r')) : ?>
     <div class="tm-toolbar tm-toolbar-alt uk-clearfix uk-hidden-small">
 
         <div class="uk-container uk-container-center">
